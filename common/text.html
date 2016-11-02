@@ -1,0 +1,19 @@
+<html>
+<form id="sub" action="http://localhost:9999/" method="POST" enctype ="multipart/form-data">
+<input id="file" type="file" name="upload" style="width:300" onchange="doUpload();"/>
+<form>
+<input id="button" type="button" value="upload" style="width:300" onclick="doUpload();" enctype ="multipart/form-data"/>
+<h1 id="myHeader" onclick="getValue()">This is a header</h1>
+<script>
+function doUpload(){
+alert(document.getElementById("file").value);
+document.getElementById("sub").submit();
+}
+function getValue()
+  {
+  var x=document.getElementById("myHeader")
+  alert(x.innerHTML)
+  }
+alert(document.getElementById("file").value);
+</script>
+</html>

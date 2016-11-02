@@ -1,0 +1,62 @@
+[INFO@2015-12-27T20:51:35.551+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-27T20:51:35.568+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Initial Loading Success!
+[INFO@2015-12-27T20:51:35.569+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Daemon Thread Started!
+[INFO@2015-12-27T20:51:35.57+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Reloading in 1000 milliseconds......
+[INFO@2015-12-27T20:51:36.57+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Loading Success! Total 1 Times.
+[INFO@2015-12-27T20:51:36.57+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Test -> "debug.test" = "1024 * (8 + 25 / (39 %   (9 + 2))) + 2"
+[INFO@2015-12-27T20:51:36.57+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-27T20:51:36.57+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Reloading in 1000 milliseconds......
+[INFO@2015-12-27T20:51:37.571+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Loading Success! Total 2 Times.
+[INFO@2015-12-27T20:51:37.571+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Test -> "debug.test" = "1024 * (8 + 25 / (39 %   (9 + 2))) + 2"
+[INFO@2015-12-27T20:51:37.571+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-27T20:51:37.571+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Reloading in 1000 milliseconds......
+[INFO@2015-12-27T20:51:38.573+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Loading Success! Total 3 Times.
+[INFO@2015-12-27T20:51:38.573+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Test -> "debug.test" = "1024 * (8 + 25 / (39 %   (9 + 2))) + 2"
+[INFO@2015-12-27T20:51:38.573+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-27T20:51:38.573+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Reloading in 1000 milliseconds......
+[INFO@2015-12-27T20:51:39.577+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Loading Success! Total 4 Times.
+[INFO@2015-12-27T20:51:39.577+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Test -> "debug.test" = "1024 * (8 + 25 / (39 %   (9 + 2))) + 2"
+[INFO@2015-12-27T20:51:39.577+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-27T20:51:39.577+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Reloading in 1000 milliseconds......
+[INFO@2015-12-27T20:51:40.579+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Loading Success! Total 5 Times.
+[INFO@2015-12-27T20:51:40.579+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Test -> "debug.test" = "1024 * (8 + 25 / (39 %   (9 + 2))) + 2"
+[INFO@2015-12-27T20:51:40.58+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-27T20:51:40.58+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Reloading in 1000 milliseconds......
+[INFO@2015-12-27T20:51:41.583+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Loading Success! Total 6 Times.
+[INFO@2015-12-27T20:51:41.583+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Test -> "debug.test" = "1024 * (8 + 25 / (39 %   (9 + 2))) + 2"
+[INFO@2015-12-27T20:51:41.583+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-27T20:51:41.583+08:00[Asia/Shanghai]@com.cogician.lang.InternalArguments]: Reloading in 1000 milliseconds......
+[2000@2015-12-29T10:23:45.522+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem]: Logger Created Successful! Current Log Destination: cogician.log
+[2000@2015-12-29T10:23:45.566+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem]: Log Level Loading Success!
+[2000@2015-12-29T10:23:45.566+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem]: Initial Loading Success!
+[2000@2015-12-29T10:23:45.567+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem]: Daemon Thread Started!
+[2000@2015-12-29T10:23:45.567+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem]: Reloading in 1000 milliseconds......
+[2000@2015-12-29T10:23:46.57+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem]: Loading Success! Total 1 Times.
+[1000@2015-12-29T10:23:46.57+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem]: Test -> "debug.test" = "Debug Info is Internal!"
+[2000@2015-12-29T10:23:46.57+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem]: Logger Created Successful! Current Log Destination: cogician.log
+[4000@2015-12-29T10:23:46.57+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem]: Log Level Loading Failed! Now Use Build-in Level
+[2000@2015-12-29T10:23:46.572+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem]: Reloading in 1000 milliseconds......
+[INFO@2015-12-30T14:32:41.286+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.refreshLogger@line: 791]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-30T14:32:41.313+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.refreshLogger@line: 800]: Log Level Loading Success!
+[INFO@2015-12-30T14:32:41.313+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.<clinit>@line: 852]: Initial Loading Success!
+[INFO@2015-12-30T14:32:41.318+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem$1.run@line: 821]: Daemon Thread Started!
+[INFO@2015-12-30T14:32:41.318+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem$1.run@line: 831]: Reloading in 1000 milliseconds......
+[INFO@2015-12-30T14:32:41.346+08:00[Asia/Shanghai]@com.cogician.lang.util.RandomUtil$1.run@line: 72]: Daemon thread start!
+[INFO@2015-12-30T14:32:41.346+08:00[Asia/Shanghai]@com.cogician.lang.util.RandomUtil$1.run@line: 72]: Daemon thread start!
+[INFO@2015-12-30T14:33:27.044+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.refreshLogger@line: 791]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-30T14:33:27.067+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.refreshLogger@line: 800]: Log Level Loading Success!
+[INFO@2015-12-30T14:33:27.068+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.<clinit>@line: 852]: Initial Loading Success!
+[INFO@2015-12-30T14:33:27.074+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem$1.run@line: 821]: Daemon Thread Started!
+[INFO@2015-12-30T14:33:27.074+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem$1.run@line: 831]: Reloading in 1000 milliseconds......
+[INFO@2015-12-30T17:12:58.426+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.refreshLogger@line: 791]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-30T17:12:58.446+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.refreshLogger@line: 800]: Log Level Loading Success!
+[INFO@2015-12-30T17:12:58.446+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.<clinit>@line: 852]: Initial Loading Success!
+[INFO@2015-12-30T17:12:58.446+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem$1.run@line: 821]: Daemon Thread Started!
+[INFO@2015-12-30T17:12:58.446+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem$1.run@line: 831]: Reloading in 1000 milliseconds......
+[INFO@2015-12-30T17:12:58.456+08:00[Asia/Shanghai]@com.cogician.lang.util.RandomUtil$1.run@line: 83]: Daemon thread start!
+[INFO@2015-12-30T17:13:33.455+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.refreshLogger@line: 791]: Logger Created Successful! Current Log Destination: cogician.log
+[INFO@2015-12-30T17:13:33.475+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.refreshLogger@line: 800]: Log Level Loading Success!
+[INFO@2015-12-30T17:13:33.475+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem.<clinit>@line: 852]: Initial Loading Success!
+[INFO@2015-12-30T17:13:33.475+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem$1.run@line: 821]: Daemon Thread Started!
+[INFO@2015-12-30T17:13:33.475+08:00[Asia/Shanghai]@com.cogician.lang.InternalSystem$1.run@line: 831]: Reloading in 1000 milliseconds......
+[INFO@2015-12-30T17:13:33.485+08:00[Asia/Shanghai]@com.cogician.lang.util.RandomUtil$1.run@line: 83]: Daemon thread start!

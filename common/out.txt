@@ -1,0 +1,140 @@
+Test Efficiency----------------------
+boolean array cost 190
+boolean accessor cost 532
+byte array cost 30
+byte accessor cost 1657
+short array cost 43
+short accessor cost 1514
+char array cost 30
+char accessor cost 1540
+int array cost 30
+int accessor cost 714
+long array cost 20
+long accessor cost 152
+Test Efficiency Ending----------------------
+Test Efficiency----------------------
+boolean array cost 170
+boolean accessor cost 584
+byte array cost 10
+byte accessor cost 2112
+short array cost 20
+short accessor cost 1470
+char array cost 20
+char accessor cost 1466
+int array cost 20
+int accessor cost 650
+long array cost 10
+long accessor cost 130
+Test Efficiency Ending----------------------
+Test Efficiency----------------------
+boolean array cost 279
+boolean accessor cost 500
+byte array cost 20
+byte accessor cost 2024
+short array cost 20
+short accessor cost 1422
+char array cost 20
+char accessor cost 1452
+int array cost 20
+int accessor cost 690
+long array cost 10
+long accessor cost 130
+Test Efficiency Ending----------------------
+Test Efficiency----------------------
+boolean array cost 180
+boolean accessor cost 500
+byte array cost 20
+byte accessor cost 2002
+short array cost 20
+short accessor cost 1494
+char array cost 20
+char accessor cost 1480
+int array cost 10
+int accessor cost 690
+long array cost 20
+long accessor cost 130
+Test Efficiency Ending----------------------
+Test Efficiency----------------------
+boolean array cost 212
+boolean accessor cost 522
+byte array cost 20
+byte accessor cost 2000
+short array cost 10
+short accessor cost 1667
+char array cost 17
+char accessor cost 1455
+int array cost 10
+int accessor cost 694
+long array cost 20
+long accessor cost 130
+Test Efficiency Ending----------------------
+Test Efficiency----------------------
+boolean array cost 190
+boolean accessor cost 540
+byte array cost 20
+byte accessor cost 2022
+short array cost 10
+short accessor cost 1470
+char array cost 10
+char accessor cost 1532
+int array cost 10
+int accessor cost 680
+long array cost 10
+long accessor cost 130
+Test Efficiency Ending----------------------
+Test Efficiency----------------------
+boolean array cost 196
+boolean accessor cost 510
+byte array cost 10
+byte accessor cost 1992
+short array cost 20
+short accessor cost 1530
+char array cost 10
+char accessor cost 1472
+int array cost 10
+int accessor cost 700
+long array cost 10
+long accessor cost 130
+Test Efficiency Ending----------------------
+Test Efficiency----------------------
+boolean array cost 180
+boolean accessor cost 523
+byte array cost 16
+byte accessor cost 2071
+short array cost 10
+short accessor cost 1486
+char array cost 10
+char accessor cost 1480
+int array cost 20
+int accessor cost 710
+long array cost 20
+long accessor cost 150
+Test Efficiency Ending----------------------
+Test Efficiency----------------------
+boolean array cost 180
+boolean accessor cost 520
+byte array cost 20
+byte accessor cost 2006
+short array cost 20
+short accessor cost 1472
+char array cost 10
+char accessor cost 1500
+int array cost 20
+int accessor cost 692
+long array cost 10
+long accessor cost 130
+Test Efficiency Ending----------------------
+Test Efficiency----------------------
+boolean array cost 180
+boolean accessor cost 522
+byte array cost 10
+byte accessor cost 1992
+short array cost 10
+short accessor cost 1480
+char array cost 21
+char accessor cost 1469
+int array cost 20
+int accessor cost 680
+long array cost 10
+long accessor cost 130
+Test Efficiency Ending----------------------
