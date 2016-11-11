@@ -6,7 +6,7 @@ import java.io.InputStream;
 
 import com.cogician.quicker.Checker;
 import com.cogician.quicker.Quicker;
-import com.cogician.quicker.Uniforms;
+import com.cogician.quicker.QuickerUniform;
 import com.cogician.quicker.bigarray.BigArray;
 
 /**
@@ -356,7 +356,7 @@ public abstract class Inputer extends InputStream implements MaybeOfLength, Byte
      * @since 0.0.0
      */
     public String readHex() throws EOFException, IOException {
-        return Quicker.leftPad(Integer.toHexString(readUnsignedByte()), 2, "0").toUpperCase(Uniforms.LOCALE);
+        return Quicker.leftPad(Integer.toHexString(readUnsignedByte()), 2, "0").toUpperCase(QuickerUniform.LOCALE);
     }
 
     /**
@@ -377,7 +377,7 @@ public abstract class Inputer extends InputStream implements MaybeOfLength, Byte
      * @since 0.0.0
      */
     public long readPrimitive(int bytesNum) throws IllegalArgumentException, EOFException, IOException {
-        Checker.checkPositiveOr0(bytesNum);
+        Checker.checkNonnegative(bytesNum);
         long row;
         switch (bytesNum) {
             case 1: {
@@ -457,7 +457,7 @@ public abstract class Inputer extends InputStream implements MaybeOfLength, Byte
      * @since 0.0.0
      */
     public byte[] readBytes(int bytesNum) throws IllegalArgumentException, EOFException, IOException {
-        Checker.checkPositiveOr0(bytesNum);
+        Checker.checkNonnegative(bytesNum);
         byte[] b = new byte[bytesNum];
         readFully(b);
         return b;
@@ -523,7 +523,7 @@ public abstract class Inputer extends InputStream implements MaybeOfLength, Byte
      * @since 0.0.0
      */
     public Binary readBinary(long bytesNum) throws IllegalArgumentException, EOFException, IOException {
-        Checker.checkPositiveOr0(bytesNum);
+        Checker.checkNonnegative(bytesNum);
         Binary bin = Binary.alloc(bytesNum);
         readFully(bin);
         return bin;

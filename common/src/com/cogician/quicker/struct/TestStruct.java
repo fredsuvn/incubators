@@ -1,6 +1,6 @@
 package com.cogician.quicker.struct;
 
-import com.cogician.quicker.Quicker;
+import java.util.Arrays;
 
 /**
  * <p>
@@ -21,87 +21,67 @@ public class TestStruct {
     }
 
     private static void testLinked() {
-        LinkedNode<String> root = new LinkedNode<>("root");
-        root.linkNextByValue("1").linkNextByValue("2").linkNextsByValues("3", "4", "5").linkNextByValue("6")
-                .setNext(root);
+        QuickLinkedNode<String> root = new QuickLinkedNode<>("root");
+        root.linkNextByValue("1").linkNextByValue("2").linkNextByValues(Arrays.asList("3", "4", "5"))
+                .linkNextByValue("6").setNext(root);
         root.linkPreviousByValue("-1").linkPreviousByValue("-2").linkPreviousByValue("-3").linkPreviousByValue("-4")
                 .linkPreviousByValue("-5").linkPreviousByValue("-6").setPrevious(root);
         System.out.println("isNextCircular: " + root.isNextCircular());
         System.out.println("isPreviousCircular: " + root.isPreviousCircular());
-        System.out.println("Next iterator: ");
-        Quicker.each(root.iteratorInNext(), e -> {
-            System.out.println(e);
-        });
-        System.out.println("Previous iterator: ");
-        Quicker.each(root.iteratorInPrevious(), e -> {
-            System.out.println(e);
-        });
+        System.out.println("Next : ");
+        root.flowNext().each(n -> System.out.println(n));
+        System.out.println("Previous : ");
+        root.flowPrevious().each(n -> System.out.println(n));
     }
 
     private static void testTree() {
-        TreeNode<String> root = new TreeNode<String>("A");
-        root.linkChildByValue("B");
-        root.getChild().linkChildrenByValues("C", "D");
-        root.getChild().getChild(1).linkChildrenByValues("E", "F");
-        root.getChild().getChild(1).getChild(0).linkChildByValue("G");
-        System.out.println("Preorder: (ABCDEGF)");
-        Quicker.each(root.iteratorInPreorder(), e -> {
-            System.out.println(e);
-        });
-        System.out.println("Postorder: (CGEFDBA)");
-        Quicker.each(root.iteratorInPostorder(), e -> {
-            System.out.println(e);
-        });
-        System.out.println("Levelorder: (ABCDEFG)");
-        Quicker.each(root.iteratorInLevelorder(), e -> {
-            System.out.println(e);
-        });
+        QuickTreeNode<String> root = new QuickTreeNode<String>("A");
+        root.childrenValues().addAll(Arrays.asList("B", "C"));
+        root.bidirectionalLink();
+        root.children().get(0).childrenValues().addAll(Arrays.asList("D", "F"));
+        root.children().get(0).children().get(0).childrenValues().add("E");
+        root.children().get(0).children().get(1).childrenValues().add("G");
+        root.children().get(0).bidirectionalLink();
+        root.children().get(0).children().get(0).bidirectionalLink();
+        root.children().get(0).children().get(1).bidirectionalLink();
+        System.out.println("Preorder: (abdefgc)");
+        root.flowPreorder().each(n -> System.out.println(n));
+        System.out.println("Postorder: (edgfbca)");
+        root.flowPostorder().each(n -> System.out.println(n));
+        System.out.println("Levelorder: (abcdfeg)");
+        root.flowLevelorder().each(n -> System.out.println(n));
         System.out.println("Level: ");
-        Quicker.each(root.levelIterator(), e -> {
-            System.out.println(e);
-        });
+        root.flowLevel().each(l -> System.out.println(l));
     }
 
     private static void testBiTree() {
-        BiTreeNode<String> root = new BiTreeNode<String>("A");
-        root.linkLeftByValue("B").linkLeftByValue("C").linkBrotherByValue("D").linkLeftByValue("E")
-                .linkBrotherByValue("F").getBrother().linkRightByValue("G");
-        System.out.println("Preorder: (ABCDEGF)");
-        Quicker.each(root.iteratorInPreorder(), e -> {
-            System.out.println(e);
-        });
-        System.out.println("Inorder: (CBEGDFA)");
-        Quicker.each(root.iteratorInInorder(), e -> {
-            System.out.println(e);
-        });
-        System.out.println("Postorder: (CGEFDBA)");
-        Quicker.each(root.iteratorInPostorder(), e -> {
-            System.out.println(e);
-        });
-        System.out.println("Levelorder: (ABCDEFG)");
-        Quicker.each(root.iteratorInLevelorder(), e -> {
-            System.out.println(e);
-        });
+        QuickBiTreeNode<String> root = new QuickBiTreeNode<String>("A");
+        root.linkLeftByValue("B").linkLeftByValue("D").linkRightByValue("E");
+        root.getLeft().linkRightByValue("F").linkLeftByValue("G");
+        root.linkRightByValue("C");
+        System.out.println("Preorder: (abdefgc)");
+        root.flowPreorder().each(n -> System.out.println(n));
+        System.out.println("Inorder: (debgfac)");
+        root.flowInorder().each(n -> System.out.println(n));
+        System.out.println("Postorder: (edgfbca)");
+        root.flowPostorder().each(n -> System.out.println(n));
+        System.out.println("Levelorder: (abcdfeg)");
+        root.flowLevelorder().each(n -> System.out.println(n));
         System.out.println("Level: ");
-        Quicker.each(root.levelIterator(), e -> {
-            System.out.println(e);
-        });
+        root.flowLevel().each(n -> System.out.println(n));
     }
 
     private static void testSwitch() {
-        Switch<Integer> s = new SwitchBuilder<Integer>().addCase(new Case<Integer>(1, i -> {
+        QuickSwitch<Integer> s = new QuickSwitch<>(Arrays.asList(new QuickCase<>(i -> i == 1, e -> {
             System.out.println("this is 1.");
-        })).addCase(new Case<Integer>(2, i -> {
+        }), new QuickCase<>(i -> i == 2, e -> {
             System.out.println("this is 2.");
-        })).addCase(new Case<Integer>(3, i -> {
+        }), new QuickCase<>(i -> i == 3, e -> {
             System.out.println("this is 3.");
-        })).setDefaultCase(new Case<Integer>(null, i -> {
+        })), new QuickCase<>(null, e -> {
             System.out.println("this is a number.");
-        })).build();
-        s.perform(Switch.CYCLE, 2);
-        s.perform(Switch.CYCLE, 1);
-        s.perform(Switch.CYCLE, 4);
-        s.perform(Switch.CYCLE, 3);
+        }));
+        s.perform(2);
         System.out.println("Switch statement: ");
         switch (2) {
             case 1:

@@ -6,8 +6,6 @@ import java.util.IllegalFormatException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.function.Predicate;
-import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 
 import javax.annotation.Nullable;
 
@@ -133,22 +131,13 @@ public class Checker {
 
     /**
      * <p>
-     * Description for checking whether string is matched by pattern.
-     * </p>
-     * 
-     * @since 0.0.0
-     */
-    private static final String CHECK_MATCHED = "Not matched the regular expression, string: \"%s\"; the regex: \"%s\".";
-
-    /**
-     * <p>
      * Description for checking whether objects are equal.
      * </p>
      * 
      * @since 0.0.0
      */
     private static final String CHECK_EQUAL = "Given objects are not equal.";
-    
+
     /**
      * <p>
      * Description for checking whether objects are distinct.
@@ -267,7 +256,7 @@ public class Checker {
     public static void check(boolean expr, String msg, Object... msgArgs)
             throws IllegalFormatException, IllegalArgumentException {
         if (!expr) {
-            throw new IllegalArgumentException(Uniforms.format(msg, msgArgs));
+            throw new IllegalArgumentException(QuickerUniform.format(msg, msgArgs));
         }
     }
 
@@ -283,7 +272,7 @@ public class Checker {
      *             if given object is null
      * @since 0.0.0
      */
-    public static void checkNull(Object obj) throws NullPointerException {
+    public static final void checkNull(Object obj) throws NullPointerException {
         // if (obj == null) {
         // throw new NullPointerException();
         // }
@@ -331,7 +320,7 @@ public class Checker {
     public static void checkNull(Object obj, String msg, Object... msgArgs)
             throws IllegalFormatException, NullPointerException {
         if (obj == null) {
-            throw new NullPointerException(Uniforms.format(msg, msgArgs));
+            throw new NullPointerException(QuickerUniform.format(msg, msgArgs));
         }
     }
 
@@ -371,7 +360,7 @@ public class Checker {
         checkNull(obj);
         checkNull(isTrue);
         if (isTrue.test(obj)) {
-            throw new IllegalArgumentException(Uniforms.format(msg, msgArgs));
+            throw new IllegalArgumentException(QuickerUniform.format(msg, msgArgs));
         }
     }
 
@@ -410,7 +399,7 @@ public class Checker {
         checkNull(obj);
         checkNull(isFalse);
         if (!isFalse.test(obj)) {
-            throw new IllegalArgumentException(Uniforms.format(msg, msgArgs));
+            throw new IllegalArgumentException(QuickerUniform.format(msg, msgArgs));
         }
     }
 
@@ -500,7 +489,7 @@ public class Checker {
      */
     public static <E> void checkNullElement(E[] array) throws NullPointerException {
         if (hasNullElement(array)) {
-            throw new NullPointerException(Uniforms.format(PASSED_NULL_IN_CONTAINER, "array"));
+            throw new NullPointerException(QuickerUniform.format(PASSED_NULL_IN_CONTAINER, "array"));
         }
     }
 
@@ -518,7 +507,7 @@ public class Checker {
      */
     public static void checkNullElement(Iterable<?> iterable) throws NullPointerException {
         if (hasNullElement(iterable)) {
-            throw new NullPointerException(Uniforms.format(PASSED_NULL_IN_CONTAINER, "iterable"));
+            throw new NullPointerException(QuickerUniform.format(PASSED_NULL_IN_CONTAINER, "iterable"));
         }
     }
 
@@ -536,7 +525,7 @@ public class Checker {
      */
     public static void checkNullValue(Map<?, ?> map) throws NullPointerException {
         if (hasNullValue(map)) {
-            throw new NullPointerException(Uniforms.format(PASSED_NULL_IN_CONTAINER, "map"));
+            throw new NullPointerException(QuickerUniform.format(PASSED_NULL_IN_CONTAINER, "map"));
         }
     }
 
@@ -553,7 +542,7 @@ public class Checker {
      */
     public static void checkPositive(int n) throws IllegalArgumentException {
         if (n <= 0) {
-            throw new IllegalArgumentException(Uniforms.format(CHECK_POSITIVE, n));
+            throw new IllegalArgumentException(QuickerUniform.format(CHECK_POSITIVE, n));
         }
     }
 
@@ -570,7 +559,7 @@ public class Checker {
      */
     public static void checkPositive(long n) throws IllegalArgumentException {
         if (n <= 0) {
-            throw new IllegalArgumentException(Uniforms.format(CHECK_POSITIVE, n));
+            throw new IllegalArgumentException(QuickerUniform.format(CHECK_POSITIVE, n));
         }
     }
 
@@ -585,9 +574,9 @@ public class Checker {
      *             if given number is not positive or 0
      * @since 0.0.0
      */
-    public static void checkPositiveOr0(int n) throws IllegalArgumentException {
+    public static void checkNonnegative(int n) throws IllegalArgumentException {
         if (n < 0) {
-            throw new IllegalArgumentException(Uniforms.format(CHECK_POSITIVE_OR_0, n));
+            throw new IllegalArgumentException(QuickerUniform.format(CHECK_POSITIVE_OR_0, n));
         }
     }
 
@@ -602,9 +591,9 @@ public class Checker {
      *             if given number is not positive or 0
      * @since 0.0.0
      */
-    public static void checkPositiveOr0(long n) throws IllegalArgumentException {
+    public static void checkNonnegative(long n) throws IllegalArgumentException {
         if (n < 0) {
-            throw new IllegalArgumentException(Uniforms.format(CHECK_POSITIVE_OR_0, n));
+            throw new IllegalArgumentException(QuickerUniform.format(CHECK_POSITIVE_OR_0, n));
         }
     }
 
@@ -621,7 +610,7 @@ public class Checker {
      */
     public static void checkLength(int l) throws IllegalArgumentException {
         if (l < 0) {
-            throw new IllegalArgumentException(Uniforms.format(CHECK_LENGTH, l));
+            throw new IllegalArgumentException(QuickerUniform.format(CHECK_LENGTH, l));
         }
     }
 
@@ -638,7 +627,7 @@ public class Checker {
      */
     public static void checkLength(long l) throws IllegalArgumentException {
         if (l < 0) {
-            throw new IllegalArgumentException(Uniforms.format(CHECK_LENGTH, l));
+            throw new IllegalArgumentException(QuickerUniform.format(CHECK_LENGTH, l));
         }
     }
 
@@ -909,7 +898,7 @@ public class Checker {
             throw new IndexOutOfBoundsException(RANGE_INDEXES_OUT_OF_ORDER);
         }
         if (startIndex < 0 || endIndex > size) {
-            throw new IndexOutOfBoundsException(Uniforms.format(RANGE_OUT_OF_BOUNDS, startIndex, endIndex, size));
+            throw new IndexOutOfBoundsException(QuickerUniform.format(RANGE_OUT_OF_BOUNDS, startIndex, endIndex, size));
         }
     }
 
@@ -933,7 +922,7 @@ public class Checker {
             throw new IndexOutOfBoundsException(RANGE_INDEXES_OUT_OF_ORDER);
         }
         if (startIndex < 0 || endIndex > size) {
-            throw new IndexOutOfBoundsException(Uniforms.format(RANGE_OUT_OF_BOUNDS, startIndex, endIndex, size));
+            throw new IndexOutOfBoundsException(QuickerUniform.format(RANGE_OUT_OF_BOUNDS, startIndex, endIndex, size));
         }
     }
 
@@ -1285,7 +1274,7 @@ public class Checker {
      * @since 0.0.0
      */
     public static boolean isEmpty(final CharSequence str) {
-        return str == null ? true : str.length() == 0;
+        return str == null || str.length() == 0;
     }
 
     /**
@@ -1299,7 +1288,7 @@ public class Checker {
      * @since 0.0.0
      */
     public static boolean isEmpty(final Collection<?> collection) {
-        return collection == null ? true : collection.isEmpty();
+        return collection == null || collection.isEmpty();
     }
 
     /**
@@ -1313,7 +1302,7 @@ public class Checker {
      * @since 0.0.0
      */
     public static boolean isEmpty(final Map<?, ?> map) {
-        return map == null ? true : map.isEmpty();
+        return map == null || map.isEmpty();
     }
 
     /**
@@ -1557,7 +1546,7 @@ public class Checker {
     public static void checkEmpty(final boolean[] array) throws NullPointerException, IllegalArgumentException {
         checkNull(array);
         if (isEmpty(array)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "array"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "array"));
         }
     }
 
@@ -1578,7 +1567,7 @@ public class Checker {
     public static void checkEmpty(final byte[] array) throws NullPointerException, IllegalArgumentException {
         checkNull(array);
         if (isEmpty(array)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "array"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "array"));
         }
     }
 
@@ -1599,7 +1588,7 @@ public class Checker {
     public static void checkEmpty(final short[] array) throws NullPointerException, IllegalArgumentException {
         checkNull(array);
         if (isEmpty(array)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "array"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "array"));
         }
     }
 
@@ -1620,7 +1609,7 @@ public class Checker {
     public static void checkEmpty(final char[] array) throws NullPointerException, IllegalArgumentException {
         checkNull(array);
         if (isEmpty(array)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "array"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "array"));
         }
     }
 
@@ -1641,7 +1630,7 @@ public class Checker {
     public static void checkEmpty(final int[] array) throws NullPointerException, IllegalArgumentException {
         checkNull(array);
         if (isEmpty(array)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "array"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "array"));
         }
     }
 
@@ -1662,7 +1651,7 @@ public class Checker {
     public static void checkEmpty(final float[] array) throws NullPointerException, IllegalArgumentException {
         checkNull(array);
         if (isEmpty(array)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "array"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "array"));
         }
     }
 
@@ -1683,7 +1672,7 @@ public class Checker {
     public static void checkEmpty(final long[] array) throws NullPointerException, IllegalArgumentException {
         checkNull(array);
         if (isEmpty(array)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "array"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "array"));
         }
     }
 
@@ -1704,7 +1693,7 @@ public class Checker {
     public static void checkEmpty(final double[] array) throws NullPointerException, IllegalArgumentException {
         checkNull(array);
         if (isEmpty(array)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "array"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "array"));
         }
     }
 
@@ -1727,7 +1716,7 @@ public class Checker {
     public static <E> void checkEmpty(final E[] array) throws NullPointerException, IllegalArgumentException {
         checkNull(array);
         if (isEmpty(array)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "array"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "array"));
         }
     }
 
@@ -1748,7 +1737,7 @@ public class Checker {
     public static void checkEmpty(CharSequence str) throws NullPointerException, IllegalArgumentException {
         checkNull(str);
         if (isEmpty(str)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "string"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "string"));
         }
     }
 
@@ -1770,7 +1759,7 @@ public class Checker {
             throws NullPointerException, IllegalArgumentException {
         checkNull(collection);
         if (isEmpty(collection)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "collection"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "collection"));
         }
     }
 
@@ -1791,7 +1780,7 @@ public class Checker {
     public static void checkEmpty(final Map<?, ?> map) throws NullPointerException, IllegalArgumentException {
         checkNull(map);
         if (isEmpty(map)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "map"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "map"));
         }
     }
 
@@ -1812,7 +1801,7 @@ public class Checker {
     public static void checkEmpty(final Buffer buffer) throws NullPointerException, IllegalArgumentException {
         checkNull(buffer);
         if (isEmpty(buffer)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "buffer"));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "buffer"));
         }
     }
 
@@ -1833,132 +1822,7 @@ public class Checker {
     public static void checkEmpty(final Binary binary) throws NullPointerException, IllegalArgumentException {
         checkNull(binary);
         if (isEmpty(binary)) {
-            throw new IllegalArgumentException(Uniforms.format(PASSED_EMPTY, "buffer"));
-        }
-    }
-
-    /**
-     * <p>
-     * Returns whether given regular expression and string to be matched are matched.
-     * </p>
-     * 
-     * @param regex
-     *            given regular expression, not null
-     * @param matched
-     *            string to be matched, not null
-     * @return whether given regular expression and string to be matched are matched
-     * @throws NullPointerException
-     *             if expression or string is null
-     * @throws PatternSyntaxException
-     *             if the expression's syntax is invalid
-     * @since 0.0.0
-     */
-    public static boolean isMatched(String regex, String matched) throws NullPointerException, PatternSyntaxException {
-        return Quicker.match(regex, matched).matches();
-    }
-
-    /**
-     * <p>
-     * Returns whether given pattern and string to be matched are matched.
-     * </p>
-     * 
-     * @param pattern
-     *            given pattern, not null
-     * @param matched
-     *            string to be matched, not null
-     * @return whether given pattern and string to be matched are matched
-     * @throws NullPointerException
-     *             if pattern or string is null
-     * @since 0.0.0
-     */
-    public static boolean isMatched(Pattern pattern, String matched)
-            throws NullPointerException, PatternSyntaxException {
-        return Quicker.match(pattern, matched).matches();
-    }
-
-    /**
-     * <p>
-     * Returns whether given regular expression and string to be matched are not matched.
-     * </p>
-     * 
-     * @param regex
-     *            given regular expression, not null
-     * @param matched
-     *            string to be matched, not null
-     * @return whether given regular expression and string to be matched are not matched
-     * @throws NullPointerException
-     *             if expression or string is null
-     * @throws PatternSyntaxException
-     *             if the expression's syntax is invalid
-     * @since 0.0.0
-     */
-    public static boolean isNotMatched(String regex, String matched)
-            throws NullPointerException, PatternSyntaxException {
-        return !isMatched(regex, matched);
-    }
-
-    /**
-     * <p>
-     * Returns whether given pattern and string to be matched are not matched.
-     * </p>
-     * 
-     * @param pattern
-     *            given pattern, not null
-     * @param matched
-     *            string to be matched, not null
-     * @return whether given pattern and string to be matched are not matched
-     * @throws NullPointerException
-     *             if pattern or string is null
-     * @since 0.0.0
-     */
-    public static boolean isNotMatched(Pattern pattern, String matched)
-            throws NullPointerException, PatternSyntaxException {
-        return !isMatched(pattern, matched);
-    }
-
-    /**
-     * <p>
-     * Checks whether given regular expression and string to be matched are matched.
-     * </p>
-     * 
-     * @param regex
-     *            given regular expression, not null
-     * @param matched
-     *            string to be matched, not null
-     * @throws NullPointerException
-     *             if expression or string is null
-     * @throws PatternSyntaxException
-     *             if the expression's syntax is invalid
-     * @throws IllegalArgumentException
-     *             if not matched
-     * @since 0.0.0
-     */
-    public static void checkMatched(String regex, String matched)
-            throws NullPointerException, PatternSyntaxException, IllegalArgumentException {
-        if (isNotMatched(regex, matched)) {
-            throw new IllegalArgumentException(Uniforms.format(CHECK_MATCHED, matched, regex));
-        }
-    }
-
-    /**
-     * <p>
-     * Checks whether given pattern and string to be matched are matched.
-     * </p>
-     * 
-     * @param pattern
-     *            given pattern, not null
-     * @param matched
-     *            string to be matched, not null
-     * @throws NullPointerException
-     *             if pattern or string is null
-     * @throws IllegalArgumentException
-     *             if not matched
-     * @since 0.0.0
-     */
-    public static void checkMatched(Pattern pattern, String matched)
-            throws NullPointerException, IllegalArgumentException {
-        if (isNotMatched(pattern, matched)) {
-            throw new IllegalArgumentException(Uniforms.format(CHECK_MATCHED, matched, pattern.pattern()));
+            throw new IllegalArgumentException(QuickerUniform.format(PASSED_EMPTY, "buffer"));
         }
     }
 
@@ -2046,7 +1910,7 @@ public class Checker {
     public static boolean isNotEqual(Object... objs) {
         return !isEqual(objs);
     }
-    
+
     /**
      * <p>
      * Returns whether each given argument are distinct of others.
@@ -2058,16 +1922,16 @@ public class Checker {
      * @since 0.0.0
      */
     public static boolean isDistinct(Object... objs) {
-    	if (objs.length <= 1){
-    		return true;
-    	}
-    	for (int i = 0; i < objs.length - 1; i++){
-    		for (int j = 1; j < objs.length; j++){
-    			if (isEqual(objs[i], objs[j])){
-    				return false;
-    			}
-    		}
-    	}
+        if (objs.length <= 1) {
+            return true;
+        }
+        for (int i = 0; i < objs.length - 1; i++) {
+            for (int j = 1; j < objs.length; j++) {
+                if (isEqual(objs[i], objs[j])) {
+                    return false;
+                }
+            }
+        }
         return true;
     }
 
@@ -2100,7 +1964,9 @@ public class Checker {
      * 
      * <pre>
      * o1 == o2 ? true : (o1 == null ? o2.equals(o1) : o1.equals(o2));
-     * </pre>.
+     * </pre>
+     * 
+     * .
      * </p>
      * 
      * @param objs
@@ -2114,7 +1980,7 @@ public class Checker {
             throw new IllegalArgumentException(CHECK_EQUAL);
         }
     }
-    
+
     /**
      * <p>
      * Checks whether given each of objects is distinct.
@@ -2182,13 +2048,13 @@ public class Checker {
      * Returns whether given object is an array.
      * </p>
      * 
-     * @param obj
+     * @param array
      *            given object
      * @return whether given object is an array
      * @since 0.0.0
      */
-    public static boolean isArray(@Nullable Object obj) {
-        return obj == null ? false : obj.getClass().isArray();
+    public static boolean isArray(@Nullable Object array) {
+        return array == null ? false : array.getClass().isArray();
     }
 
     /**
@@ -2196,7 +2062,7 @@ public class Checker {
      * Checks whether given object is an array
      * </p>
      * 
-     * @param obj
+     * @param array
      *            given object
      * @throws NullPointerException
      *             if given object is null
@@ -2204,8 +2070,8 @@ public class Checker {
      *             if given object is not an array
      * @since 0.0.0
      */
-    public static void checkArray(Object obj) throws NullPointerException, IllegalArgumentException {
-        if (!isArray(Quicker.require(obj))) {
+    public static void checkArray(Object array) throws NullPointerException, IllegalArgumentException {
+        if (!isArray(array)) {
             throw new IllegalArgumentException(CHECK_ARRAY);
         }
     }

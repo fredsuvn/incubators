@@ -5,7 +5,7 @@ import java.io.IOException;
 
 import com.cogician.quicker.Checker;
 import com.cogician.quicker.Quicker;
-import com.cogician.quicker.Uniforms;
+import com.cogician.quicker.QuickerUniform;
 import com.sun.istack.internal.Nullable;
 
 /**
@@ -389,7 +389,7 @@ public interface Binary extends ByteOrderSensitive {
      * @since 0.0.0
      */
     default String getHex(long index) throws EOFException, IOException {
-        return Quicker.leftPad(Integer.toHexString(getUnsignedByte(index)), 2, "0").toUpperCase(Uniforms.LOCALE);
+        return Quicker.leftPad(Integer.toHexString(getUnsignedByte(index)), 2, "0").toUpperCase(QuickerUniform.LOCALE);
     }
 
     /**

@@ -16,9 +16,10 @@ import java.util.regex.Pattern;
 public class TestLexer {
 
     public static void main(String[] args) {
-    	Pattern p = Pattern.compile("^((?!abc).)*");
-    	Matcher m = p.matcher("aaa\r\naaabc");
+    	Pattern p = Pattern.compile("^((?!abc)[\\s\\S])*");
+    	Matcher m = p.matcher("assbcaa\r\naaabc");
     	System.out.println(m.lookingAt());
+    	System.out.println(m.start());
     	System.out.println(m.end());
 //    	String str = "/**\r\n\ras\ngdgds*/function\n abc //ddddd\rfsfafasf";
 //    	for (int i = 0; i < 2; i++){

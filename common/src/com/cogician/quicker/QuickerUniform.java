@@ -10,8 +10,8 @@ import java.util.IllegalFormatException;
 import java.util.Locale;
 
 import com.cogician.quicker.configuration.QConfiguration;
-import com.cogician.quicker.util.TimeQuicker;
-import com.cogician.quicker.util.reflect.ReflectionQuicker;
+import com.cogician.quicker.util.QuickClocks;
+import com.cogician.quicker.util.reflect.QuickReflections;
 
 /**
  * <p>
@@ -23,7 +23,7 @@ import com.cogician.quicker.util.reflect.ReflectionQuicker;
  * @version 0.0.0, 2016-05-16T17:17:52+08:00
  * @since 0.0.0, 2016-05-16T17:17:52+08:00
  */
-public class Uniforms {
+public class QuickerUniform {
 
     private static final QConfiguration config = QuickerProperties.getProperties();
 
@@ -39,7 +39,7 @@ public class Uniforms {
      * @since 0.0.0
      */
     public static final Locale LOCALE;
-    
+
     /**
      * <p>
      * Uniformed charset.
@@ -172,7 +172,7 @@ public class Uniforms {
         if (isDefault(locale)) {
             LOCALE = Locale.getDefault();
         } else {
-            LOCALE = (Locale)ReflectionQuicker.getFieldValue(Locale.class, null, locale);
+            LOCALE = (Locale)QuickReflections.getValue(Locale.class, locale);
         }
 
         String charset = config.getString("charset");
@@ -188,7 +188,7 @@ public class Uniforms {
 
         String zoneOffset = config.getString("zone.offset");
         if (isDefault(zoneOffset)) {
-            ZONE_OFFSET = TimeQuicker.defaultOffset();
+            ZONE_OFFSET = QuickClocks.defaultOffset();
         } else {
             ZONE_OFFSET = ZoneOffset.ofTotalSeconds(Quicker.calculate(zoneOffset).intValue());
         }

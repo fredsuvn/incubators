@@ -12,7 +12,7 @@ import java.util.Locale;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 
-import com.cogician.quicker.util.TimeQuicker;
+import com.cogician.quicker.util.QuickClocks;
 
 /**
  * <p>
@@ -112,7 +112,7 @@ public class DateTime {
      * @since 0.0.0
      */
     public DateTime(int year, int month, int day, int hour, int minute, int second, int nano) throws DateTimeException {
-        this(year, month, day, hour, minute, second, nano, TimeQuicker.defaultOffset());
+        this(year, month, day, hour, minute, second, nano, QuickClocks.defaultOffset());
     }
 
     /**
@@ -309,14 +309,14 @@ public class DateTime {
 
     /**
      * <p>
-     * Converts this date time as string by format {@linkplain TimeQuicker#SIMPLE_FORMATTER}.
+     * Converts this date time as string by format {@linkplain QuickClocks#HUMANISM_FORMATTER}.
      * </p>
      * 
-     * @return this date time as string by format {@linkplain TimeQuicker#SIMPLE_FORMATTER}
+     * @return this date time as string by format {@linkplain QuickClocks#HUMANISM_FORMATTER}
      * @since 0.0.0
      */
     public String toString() {
-        return time.format(TimeQuicker.SIMPLE_FORMATTER);
+        return time.format(QuickClocks.HUMANISM_FORMATTER);
     }
 
     /**

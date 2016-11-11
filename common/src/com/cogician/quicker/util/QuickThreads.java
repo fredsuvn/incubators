@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
  * @version 0.0.0, 2016-05-23T22:45:19+08:00
  * @since 0.0.0, 2016-05-23T22:45:19+08:00
  */
-public class ThreadQuicker {
+public class QuickThreads {
 
     /**
      * <p>

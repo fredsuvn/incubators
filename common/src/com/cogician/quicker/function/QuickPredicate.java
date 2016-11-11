@@ -29,7 +29,7 @@ import com.cogician.quicker.Checker;
  * @since 0.0.0, 2016-02-10T16:39:44+08:00
  */
 @FunctionalInterface
-public interface EachPredicate<E> {
+public interface QuickPredicate<E> {
 
     /**
      * <p>
@@ -42,7 +42,7 @@ public interface EachPredicate<E> {
      *            current element
      * @return result of each calling
      * @since 0.0.0
-     * @see EachPredicate
+     * @see QuickPredicate
      */
     public boolean test(long index, E element);
 
@@ -59,7 +59,7 @@ public interface EachPredicate<E> {
      * @throws NullPointerException
      *             if {@code other} is null
      */
-    default EachPredicate<E> and(EachPredicate<? super E> other) throws NullPointerException {
+    default QuickPredicate<E> and(QuickPredicate<? super E> other) throws NullPointerException {
         Checker.checkNull(other);
         return (i, e) -> test(i, e) && other.test(i, e);
     }
@@ -71,7 +71,7 @@ public interface EachPredicate<E> {
      *
      * @return a EachPredicate that represents the logical negation of this predicate
      */
-    default EachPredicate<E> negate() {
+    default QuickPredicate<E> negate() {
         return (i, e) -> !test(i, e);
     }
 
@@ -88,7 +88,7 @@ public interface EachPredicate<E> {
      * @throws NullPointerException
      *             if {@code other} is null
      */
-    default EachPredicate<E> or(EachPredicate<? super E> other) throws NullPointerException {
+    default QuickPredicate<E> or(QuickPredicate<? super E> other) throws NullPointerException {
         Checker.checkNull(other);
         return (i, e) -> test(i, e) || other.test(i, e);
     }

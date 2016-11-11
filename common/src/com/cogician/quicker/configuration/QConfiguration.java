@@ -9,9 +9,9 @@ import java.util.Map;
 import javax.annotation.Nullable;
 
 import com.cogician.quicker.ReadException;
-import com.cogician.quicker.Uniforms;
+import com.cogician.quicker.QuickerUniform;
 import com.cogician.quicker.WriteException;
-import com.cogician.quicker.struct.ValueOf;
+import com.cogician.quicker.struct.QuickValue;
 import com.cogician.quicker.util.placeholder.QuickPlaceholderResolver;
 
 /**
@@ -63,7 +63,7 @@ import com.cogician.quicker.util.placeholder.QuickPlaceholderResolver;
  * @see ConcurrentPropertiesConfigMap
  * @see QuickPlaceholderResolver
  */
-public interface QConfiguration extends Map<String, ValueOf<?>> {
+public interface QConfiguration extends Map<String, QuickValue<?>> {
 
     /**
      * <p>
@@ -117,7 +117,7 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default @Nullable String getString(String key) throws NullPointerException {
-        ValueOf<?> value = get(key);
+        QuickValue<?> value = get(key);
         if (null != value && value.isPresent()) {
             return get(key).asString();
         }
@@ -126,7 +126,7 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
 
     /**
      * <p>
-     * Returns int value of specified key. Return {@linkplain Uniforms#INVALID_CODE} if not found.
+     * Returns int value of specified key. Return {@linkplain QuickerUniform#INVALID_CODE} if not found.
      * </p>
      * 
      * @param key
@@ -139,16 +139,16 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default @Nullable int getInt(String key) throws NullPointerException, NumberFormatException {
-        ValueOf<?> value = get(key);
+        QuickValue<?> value = get(key);
         if (null != value && value.isPresent()) {
             return get(key).asInt();
         }
-        return Uniforms.INVALID_CODE;
+        return QuickerUniform.INVALID_CODE;
     }
 
     /**
      * <p>
-     * Returns float value of specified key. Return {@linkplain Uniforms#INVALID_CODE} if not found.
+     * Returns float value of specified key. Return {@linkplain QuickerUniform#INVALID_CODE} if not found.
      * </p>
      * 
      * @param key
@@ -161,16 +161,16 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default @Nullable float getFloat(String key) throws NullPointerException, NumberFormatException {
-        ValueOf<?> value = get(key);
+        QuickValue<?> value = get(key);
         if (null != value && value.isPresent()) {
             return get(key).asFloat();
         }
-        return Uniforms.INVALID_CODE;
+        return QuickerUniform.INVALID_CODE;
     }
 
     /**
      * <p>
-     * Returns long value of specified key. Return {@linkplain Uniforms#INVALID_CODE} if not found.
+     * Returns long value of specified key. Return {@linkplain QuickerUniform#INVALID_CODE} if not found.
      * </p>
      * 
      * @param key
@@ -183,16 +183,16 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default @Nullable long getLong(String key) throws NullPointerException, NumberFormatException {
-        ValueOf<?> value = get(key);
+        QuickValue<?> value = get(key);
         if (null != value && value.isPresent()) {
             return get(key).asLong();
         }
-        return Uniforms.INVALID_CODE;
+        return QuickerUniform.INVALID_CODE;
     }
 
     /**
      * <p>
-     * Returns double value of specified key. Return {@linkplain Uniforms#INVALID_CODE} if not found.
+     * Returns double value of specified key. Return {@linkplain QuickerUniform#INVALID_CODE} if not found.
      * </p>
      * 
      * @param key
@@ -205,11 +205,11 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default @Nullable double getDouble(String key) throws NullPointerException, NumberFormatException {
-        ValueOf<?> value = get(key);
+        QuickValue<?> value = get(key);
         if (null != value && value.isPresent()) {
             return get(key).asDouble();
         }
-        return Uniforms.INVALID_CODE;
+        return QuickerUniform.INVALID_CODE;
     }
 
     /**
@@ -227,11 +227,11 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default @Nullable BigInteger getBigInteger(String key) throws NullPointerException, NumberFormatException {
-        ValueOf<?> value = get(key);
+        QuickValue<?> value = get(key);
         if (null != value && value.isPresent()) {
             return get(key).asBigInteger();
         }
-        return Uniforms.INVALID_CODE_BIG_INT;
+        return QuickerUniform.INVALID_CODE_BIG_INT;
     }
 
     /**
@@ -249,11 +249,11 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default @Nullable BigDecimal getBigDecimal(String key) throws NullPointerException, NumberFormatException {
-        ValueOf<?> value = get(key);
+        QuickValue<?> value = get(key);
         if (null != value && value.isPresent()) {
             return get(key).asBigDecimal();
         }
-        return Uniforms.INVALID_CODE_BIG_DEC;
+        return QuickerUniform.INVALID_CODE_BIG_DEC;
     }
 
     /**
@@ -286,7 +286,7 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default void set(String key, @Nullable String value) throws NullPointerException, UnsupportedOperationException {
-        put(key, ValueOf.wrap(value));
+        put(key, QuickValue.wrap(value));
     }
 
     /**
@@ -305,7 +305,7 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default void set(String key, int value) throws NullPointerException, UnsupportedOperationException {
-        put(key, ValueOf.wrap(value));
+        put(key, QuickValue.wrap(value));
     }
 
     /**
@@ -324,7 +324,7 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default void set(String key, float value) throws NullPointerException, UnsupportedOperationException {
-        put(key, ValueOf.wrap(value));
+        put(key, QuickValue.wrap(value));
     }
 
     /**
@@ -343,7 +343,7 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default void set(String key, long value) throws NullPointerException, UnsupportedOperationException {
-        put(key, ValueOf.wrap(value));
+        put(key, QuickValue.wrap(value));
     }
 
     /**
@@ -362,7 +362,7 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      * @since 0.0.0
      */
     default void set(String key, double value) throws NullPointerException, UnsupportedOperationException {
-        put(key, ValueOf.wrap(value));
+        put(key, QuickValue.wrap(value));
     }
 
     /**
@@ -382,7 +382,7 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      */
     default void set(String key, @Nullable BigInteger value)
             throws NullPointerException, UnsupportedOperationException {
-        put(key, ValueOf.wrap(value));
+        put(key, QuickValue.wrap(value));
     }
 
     /**
@@ -402,7 +402,7 @@ public interface QConfiguration extends Map<String, ValueOf<?>> {
      */
     default void set(String key, @Nullable BigDecimal value)
             throws NullPointerException, UnsupportedOperationException {
-        put(key, ValueOf.wrap(value));
+        put(key, QuickValue.wrap(value));
     }
 
     /**

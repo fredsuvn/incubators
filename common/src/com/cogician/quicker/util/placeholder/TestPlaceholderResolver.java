@@ -3,7 +3,7 @@ package com.cogician.quicker.util.placeholder;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.cogician.quicker.util.QuiCollections;
+import com.cogician.quicker.util.QuickCollections;
 import com.cogician.quicker.util.placeholder.QuickPlaceholderResolver.Result;
 
 /**
@@ -39,7 +39,7 @@ public class TestPlaceholderResolver {
         System.out.println(uResolver.resolve(sql, map));
         System.out.println(uResolver.resolveDetail(sql, map).getUsedArguments());
 
-        Map<String, String> m = QuiCollections.multiKeysSingletonValueMap(map.keySet(), "?");
+        Map<String, String> m = QuickCollections.multiKeysSingletonValueMap(map.keySet(), "?");
         result = uResolver.resolveDetail(sql, m);
         System.out.println(result.getResultString());
 

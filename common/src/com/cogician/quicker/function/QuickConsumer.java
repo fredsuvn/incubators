@@ -21,7 +21,7 @@ import com.cogician.quicker.Checker;
  * @since 0.0.0, 2016-05-05T19:08:21+08:00
  */
 @FunctionalInterface
-public interface EachConsumer<E> {
+public interface QuickConsumer<E> {
 
     /**
      * <p>
@@ -50,7 +50,7 @@ public interface EachConsumer<E> {
      *             if {@code after} is null
      * @since 0.0.0
      */
-    default EachConsumer<E> andThen(EachConsumer<? super E> after) throws NullPointerException {
+    default QuickConsumer<E> andThen(QuickConsumer<? super E> after) throws NullPointerException {
         Checker.checkNull(after);
         return (i, e) -> {
             accept(i, e);

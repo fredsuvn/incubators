@@ -1,6 +1,6 @@
 /**
  * <p>
- * Package of common structures.
+ * Package of quick structures.
  * </p>
  *
  * @author Fred Suvn

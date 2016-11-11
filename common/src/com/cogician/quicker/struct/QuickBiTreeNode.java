@@ -9,17 +9,12 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.cogician.quicker.Quicker;
+import com.cogician.quicker.Quicker.Flow;
+
 /**
  * <p>
- * Node of a binary tree.
- * </p>
- * <p>
- * This class has set and link methods to operate its child nodes. Especially, set methods only set left and right nodes
- * but don't set those parent to current node; link method not only set child nodes but also set those parent to current
- * node (bidirectional link).
- * </p>
- * <p>
- * This class is cloneable and serializable.
+ * Represents a binary tree node.
  * </p>
  * 
  * @param <E>
@@ -29,15 +24,13 @@ import javax.annotation.Nullable;
  * @version 0.0.0, 2016-04-20T09:36:22+08:00
  * @since 0.0.0, 2016-04-20T09:36:22+08:00
  */
-public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
+public class QuickBiTreeNode<E> extends AbstractNode<E> {
 
-    private static final long serialVersionUID = 1L;
+    private QuickBiTreeNode<E> parent;
 
-    @Nullable
-    private BiTreeNode<E> left;
+    private QuickBiTreeNode<E> left;
 
-    @Nullable
-    private BiTreeNode<E> right;
+    private QuickBiTreeNode<E> right;
 
     /**
      * <p>
@@ -46,7 +39,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * 
      * @since 0.0.0
      */
-    public BiTreeNode() {
+    public QuickBiTreeNode() {
         super();
     }
 
@@ -59,7 +52,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      *            specified value
      * @since 0.0.0
      */
-    public BiTreeNode(@Nullable E value) {
+    public QuickBiTreeNode(@Nullable E value) {
         super(value);
     }
 
@@ -77,68 +70,77 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      *            right node
      * @since 0.0.0
      */
-    public BiTreeNode(@Nullable E value, @Nullable BiTreeNode<E> left, @Nullable BiTreeNode<E> right) {
+    public QuickBiTreeNode(@Nullable E value, @Nullable QuickBiTreeNode<E> left, @Nullable QuickBiTreeNode<E> right) {
         super(value);
         linkLeft(left);
         linkRight(right);
     }
 
+    @Override
+    protected QuickBiTreeNode<E> createNode(E value) {
+        return new QuickBiTreeNode<E>(value);
+    }
+
     /**
      * <p>
-     * Constructs an instance with given value, value of previous node and value of next node. Child nodes and its
-     * parent (this) will be bidirectional link.
+     * Gets parent node.
      * </p>
      * 
-     * @param value
+     * @return parent node
+     * @since 0.0.0
+     */
+    public @Nullable QuickBiTreeNode<E> getParent() {
+        return parent;
+    }
+
+    /**
+     * <p>
+     * Sets parent node.
+     * </p>
+     * 
+     * @param parent
+     *            parent node
+     * @since 0.0.0
+     */
+    public void setParent(@Nullable QuickBiTreeNode<E> parent) {
+        this.parent = parent;
+    }
+
+    /**
+     * <p>
+     * Sets parent node created by given value. If given value is null, create and set an empty node.
+     * </p>
+     * 
+     * @param parentValue
      *            given value
-     * @param leftValue
-     *            value of left node
-     * @param rightValue
-     *            value of right node
      * @since 0.0.0
      */
-    public BiTreeNode(@Nullable E value, @Nullable E leftValue, @Nullable E rightValue) {
-        super(value);
-        linkLeft(createNode(leftValue));
-        linkRight(createNode(rightValue));
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    protected <T extends Node<E>> T createNode(E value) {
-        return (T)new BiTreeNode<E>(value);
+    public void setParentByValue(@Nullable E parentValue) {
+        setParent(createNode(parentValue));
     }
 
     /**
-     * {@inheritDoc}
      * <p>
-     * For bi-tree node, it returns number of non-null child nodes of this nodes.
+     * Returns whether this node has parent node.
      * </p>
      * 
-     * @return number of non-null child nodes of this nodes
+     * @return whether this node has parent node
      * @since 0.0.0
      */
-    @Override
-    public int getChildrenNumber() {
-        if (getLeft() == null && getRight() == null) {
-            return 0;
-        } else if (getLeft() == null || getRight() == null) {
-            return 1;
-        } else {
-            return 2;
-        }
+    public boolean hasParent() {
+        return getParent() != null;
     }
 
-    @Override
-    public void bidirectionalLink() {
-        BiTreeNode<E> l = getLeft();
-        BiTreeNode<E> r = getRight();
-        if (l != null) {
-            l.setParent(this);
-        }
-        if (r != null) {
-            r.setParent(this);
-        }
+    /**
+     * <p>
+     * Returns whether this node has at least one child node.
+     * </p>
+     * 
+     * @return whether this node has at least one child node
+     * @since 0.0.0
+     */
+    public boolean hasChild() {
+        return hasLeft() || hasRight();
     }
 
     /**
@@ -149,7 +151,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * @return left node
      * @since 0.0.0
      */
-    public @Nullable BiTreeNode<E> getLeft() {
+    public @Nullable QuickBiTreeNode<E> getLeft() {
         return left;
     }
 
@@ -162,20 +164,8 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      *            left node
      * @since 0.0.0
      */
-    public void setLeft(@Nullable BiTreeNode<E> left) {
+    public void setLeft(@Nullable QuickBiTreeNode<E> left) {
         this.left = left;
-    }
-
-    /**
-     * <p>
-     * Gets value of left node. If left node is null, return null.
-     * </p>
-     * 
-     * @return value of left node
-     * @since 0.0.0
-     */
-    public @Nullable E getLeftValue() {
-        return getValue(getLeft());
     }
 
     /**
@@ -199,7 +189,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * @return right node
      * @since 0.0.0
      */
-    public @Nullable BiTreeNode<E> getRight() {
+    public @Nullable QuickBiTreeNode<E> getRight() {
         return right;
     }
 
@@ -212,20 +202,8 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      *            right node
      * @since 0.0.0
      */
-    public void setRight(@Nullable BiTreeNode<E> right) {
+    public void setRight(@Nullable QuickBiTreeNode<E> right) {
         this.right = right;
-    }
-
-    /**
-     * <p>
-     * Gets value of right node. If right node is null, return null.
-     * </p>
-     * 
-     * @return value of right node
-     * @since 0.0.0
-     */
-    public @Nullable E getRightValue() {
-        return getValue(getRight());
     }
 
     /**
@@ -241,7 +219,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         setRight(createNode(rightValue));
     }
 
-    private static <E> void bidirectionalLinkLeft(@Nullable BiTreeNode<E> asParent, @Nullable BiTreeNode<E> asLeft) {
+    private void bidirectionalLinkLeft(@Nullable QuickBiTreeNode<E> asParent, @Nullable QuickBiTreeNode<E> asLeft) {
         if (asParent != null) {
             asParent.setLeft(asLeft);
         }
@@ -250,7 +228,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         }
     }
 
-    private static <E> void bidirectionalLinkRight(@Nullable BiTreeNode<E> asParent, @Nullable BiTreeNode<E> asRight) {
+    private void bidirectionalLinkRight(@Nullable QuickBiTreeNode<E> asParent, @Nullable QuickBiTreeNode<E> asRight) {
         if (asParent != null) {
             asParent.setRight(asRight);
         }
@@ -270,7 +248,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * @return linked given node or null
      * @since 0.0.0
      */
-    public @Nullable BiTreeNode<E> linkLeft(@Nullable BiTreeNode<E> left) {
+    public @Nullable QuickBiTreeNode<E> linkLeft(@Nullable QuickBiTreeNode<E> left) {
         bidirectionalLinkLeft(this, left);
         return left;
     }
@@ -286,7 +264,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * @return created and linked node
      * @since 0.0.0
      */
-    public BiTreeNode<E> linkLeftByValue(@Nullable E leftValue) {
+    public QuickBiTreeNode<E> linkLeftByValue(@Nullable E leftValue) {
         return linkLeft(createNode(leftValue));
     }
 
@@ -301,7 +279,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * @return linked given node or null
      * @since 0.0.0
      */
-    public @Nullable BiTreeNode<E> linkRight(@Nullable BiTreeNode<E> right) {
+    public @Nullable QuickBiTreeNode<E> linkRight(@Nullable QuickBiTreeNode<E> right) {
         bidirectionalLinkRight(this, right);
         return right;
     }
@@ -317,51 +295,77 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * @return created and linked node
      * @since 0.0.0
      */
-    public BiTreeNode<E> linkRightByValue(@Nullable E rightValue) {
+    public QuickBiTreeNode<E> linkRightByValue(@Nullable E rightValue) {
         return linkRight(createNode(rightValue));
     }
 
     /**
      * <p>
-     * Bidirectional-links given node as brother node of this node. If given node is null, the brother node of this node
-     * will be set null. Linked given node or null (if given node is null) will be returned.
-     * </p>
-     * <p>
-     * If this node doesn't have a parent node, do nothing and return null.
+     * Bidirectional-links this node and its child nodes. That means each child node will set its parent node to this
+     * node.
      * </p>
      * 
-     * @param brother
-     *            given node as brother node of this node
-     * @return linked given node or null
      * @since 0.0.0
      */
-    public @Nullable BiTreeNode<E> linkBrother(@Nullable BiTreeNode<E> brother) {
-        if (isLeft()) {
-            getParent().linkRight(brother);
-            return brother;
-        } else if (isRight()) {
-            getParent().linkLeft(brother);
-            return brother;
+    public void bidirectionalLink() {
+        QuickBiTreeNode<E> l = getLeft();
+        QuickBiTreeNode<E> r = getRight();
+        if (l != null) {
+            l.setParent(this);
         }
-        return null;
+        if (r != null) {
+            r.setParent(this);
+        }
     }
 
     /**
      * <p>
-     * Bidirectional-links a node created by given value as brother node of this node. Created and linked node will be
-     * returned.
-     * </p>
-     * <p>
-     * If this node doesn't have a parent node, do nothing and return null.
+     * Returns root node of this node.
      * </p>
      * 
-     * @param brotherValue
-     *            given value
-     * @return created and linked node or null
+     * @return root node of this node
      * @since 0.0.0
      */
-    public BiTreeNode<E> linkBrotherByValue(@Nullable E brotherValue) {
-        return linkBrother(createNode(brotherValue));
+    public QuickBiTreeNode<E> getRoot() {
+        QuickBiTreeNode<E> node = this;
+        while (node.hasParent()) {
+            node = node.getParent();
+        }
+        return node;
+    }
+
+    /**
+     * <p>
+     * Returns whether this node is parent node of given node.
+     * </p>
+     * 
+     * @param child
+     *            given node
+     * @return whether this node is parent node of given node
+     * @since 0.0.0
+     */
+    public boolean isParentOf(@Nullable QuickBiTreeNode<E> child) {
+        if (child == null) {
+            return false;
+        }
+        return child.getParent() == this;
+    }
+
+    /**
+     * <p>
+     * Returns whether this node is child node of given node.
+     * </p>
+     * 
+     * @param parent
+     *            given node
+     * @return whether this node is child node of given node
+     * @since 0.0.0
+     */
+    public boolean isChildOf(@Nullable QuickBiTreeNode<E> parent) {
+        if (parent == null) {
+            return false;
+        }
+        return parent.getLeft() == this || parent.getRight() == this;
     }
 
     /**
@@ -390,45 +394,6 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
 
     /**
      * <p>
-     * Bidirectional-cuts off the relation between left node and this node. If left node is null, do nothing.
-     * </p>
-     * 
-     * @return this
-     * @since 0.0.0
-     */
-    public BiTreeNode<E> cutOffLeft() {
-        if (hasLeft()) {
-            BiTreeNode<E> nullNode = null;
-            getLeft().setParent(nullNode);
-            setLeft(nullNode);
-        }
-        return this;
-    }
-
-    /**
-     * <p>
-     * Bidirectional-cuts off the relation between right node and this node. If right node is null, do nothing.
-     * </p>
-     * 
-     * @return this
-     * @since 0.0.0
-     */
-    public BiTreeNode<E> cutOffRight() {
-        if (hasRight()) {
-            BiTreeNode<E> nullNode = null;
-            getRight().setParent(nullNode);
-            setRight(nullNode);
-        }
-        return this;
-    }
-
-    @Override
-    public boolean isLeaf() {
-        return !hasLeft() && !hasRight();
-    }
-
-    /**
-     * <p>
      * Returns whether this node is left node.
      * </p>
      * 
@@ -436,7 +401,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * @since 0.0.0
      */
     public boolean isLeft() {
-        return isChild() && getParent().getLeft() == this;
+        return hasParent() && getParent().getLeft() == this;
     }
 
     /**
@@ -448,7 +413,19 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * @since 0.0.0
      */
     public boolean isRight() {
-        return isChild() && getParent().getRight() == this;
+        return hasParent() && getParent().getRight() == this;
+    }
+
+    /**
+     * <p>
+     * Returns whether this node is a leaf node.
+     * </p>
+     * 
+     * @return whether this node is a leaf node
+     * @since 0.0.0
+     */
+    public boolean isLeaf() {
+        return !hasChild();
     }
 
     /**
@@ -485,11 +462,11 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * @return whether this node is left node of given node
      * @since 0.0.0
      */
-    public boolean isLeftOf(@Nullable BiTreeNode<E> parent) {
+    public boolean isLeftOf(@Nullable QuickBiTreeNode<E> parent) {
         if (parent == null) {
             return false;
         }
-        return this == parent.getLeft();
+        return parent.getLeft() == this;
     }
 
     /**
@@ -502,80 +479,71 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
      * @return whether this node is right node of given node
      * @since 0.0.0
      */
-    public boolean isRightOf(@Nullable BiTreeNode<E> parent) {
+    public boolean isRightOf(@Nullable QuickBiTreeNode<E> parent) {
         if (parent == null) {
             return false;
         }
-        return this == parent.getRight();
+        return parent.getRight() == this;
     }
 
     /**
      * <p>
-     * Returns whether this node has brother node.
+     * Returns a flow to traverse children of this node in preorder.
      * </p>
      * 
-     * @return whether this node has brother node
+     * @return a flow to traverse children of this node in preorder
      * @since 0.0.0
      */
-    public boolean hasBrother() {
-        return isLeft() ? getParent().hasRight() : (isRight() ? getParent().hasLeft() : false);
+    public Flow<QuickBiTreeNode<E>> flowPreorder() {
+        return Quicker.flow(new PreorderIterator());
     }
 
     /**
      * <p>
-     * Returns brother node of this node if it has.
+     * Returns a flow to traverse children of this node in inorder.
      * </p>
      * 
-     * @return brother node of this node
+     * @return a flow to traverse children of this node in inorder
      * @since 0.0.0
      */
-    public @Nullable BiTreeNode<E> getBrother() {
-        if (isLeft()) {
-            return getParent().getRight();
-        } else if (isRight()) {
-            return getParent().getLeft();
-        } else {
-            return null;
-        }
-    }
-
-    @Override
-    public Iterator<BiTreeNode<E>> iteratorInPreorder() {
-        return new PreorderIterator();
+    public Flow<QuickBiTreeNode<E>> flowInorder() {
+        return Quicker.flow(new InorderIterator());
     }
 
     /**
      * <p>
-     * Returns an iterator to iterate each node under this node which is considered as root in inorder.
+     * Returns a flow to traverse children of this node in postorder.
      * </p>
      * 
-     * @return an iterator to iterate each node under this node which is considered as root in inorder
+     * @return a flow to traverse children of this node in postorder
      * @since 0.0.0
      */
-    public Iterator<BiTreeNode<E>> iteratorInInorder() {
-        return new InorderIterator();
-    }
-
-    @Override
-    public Iterator<BiTreeNode<E>> iteratorInPostorder() {
-        return new PostorderIterator();
-    }
-
-    @Override
-    public Iterator<BiTreeNode<E>> iteratorInLevelorder() {
-        return new LevelorderIterator();
+    public Flow<QuickBiTreeNode<E>> flowPostorder() {
+        return Quicker.flow(new PostorderIterator());
     }
 
     /**
      * <p>
-     * Returns an iterator to iterate each level start from this node. The node list of each level is read-only.
+     * Returns a flow to traverse children of this node in level-order.
      * </p>
      * 
-     * @return an iterator to iterate each level start from this node
+     * @return a flow to traverse children of this node in level-order
      * @since 0.0.0
      */
-    public Iterator<List<BiTreeNode<E>>> levelIterator() {
-        return new LevelIterator();
+    public Flow<QuickBiTreeNode<E>> flowLevelorder() {
+        return Quicker.flow(new LevelorderIterator());
+    }
+
+    /**
+     * <p>
+     * Returns a flow to traverse children of this node by level step.
+     * </p>
+     * 
+     * @return a flow to traverse children of this node by level step
+     * @since 0.0.0
+     */
+    public Flow<List<QuickBiTreeNode<E>>> flowLevel() {
+        return Quicker.flow(new LevelIterator());
     }
 
     /**
@@ -591,10 +559,10 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         int currentStack = 0;
         int countStack = 1;
         int levelLastStack = 1;
-        Deque<BiTreeNode<E>> queue = new LinkedList<>();
+        Deque<QuickBiTreeNode<E>> queue = new LinkedList<>();
         queue.addLast(this);
         while (!queue.isEmpty()) {
-            BiTreeNode<E> node = queue.pollFirst();
+            QuickBiTreeNode<E> node = queue.pollFirst();
             currentStack++;
             if (node.hasLeft()) {
                 queue.addLast(node.getLeft());
@@ -612,18 +580,46 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         return depth;
     }
 
-    @Override
-    public String toString() {
-        return getClass().getName() + "{id=" + System.identityHashCode(this) + ",value=" + getValue() + ",left="
-                + System.identityHashCode(getLeft()) + ",right=" + System.identityHashCode(getRight()) + "}";
+    /**
+     * <p>
+     * Converts this node into a tree node.
+     * </p>
+     * 
+     * @return converted tree node
+     * @since 0.0.0
+     */
+    public QuickTreeNode<E> toTreeNode() {
+        QuickTreeNode<E> result = new QuickTreeNode<>(getValue());
+        if (hasLeft()) {
+            result.children().add(new QuickTreeNode<E>(getLeft().getValue()));
+        }
+        if (hasRight()) {
+            result.children().add(new QuickTreeNode<E>(getRight().getValue()));
+        }
+        result.children().add(new QuickTreeNode<E>());
+        return result;
     }
 
-    class PreorderIterator implements Iterator<BiTreeNode<E>> {
+    /**
+     * <p>
+     * Returns a string represents this node.
+     * </p>
+     * 
+     * @return a string represents this node
+     * @since 0.0.0
+     */
+    @Override
+    public String toString() {
+        return "{value:" + getValue() + ",left:" + (hasLeft() ? getLeft().getValue() : null) + ",right:"
+                + (hasRight() ? getRight().getValue() : null) + "}";
+    }
 
-        private final Deque<BiTreeNode<E>> stack = new LinkedList<>();
+    class PreorderIterator implements Iterator<QuickBiTreeNode<E>> {
+
+        private final Deque<QuickBiTreeNode<E>> stack = new LinkedList<>();
 
         PreorderIterator() {
-            stack.addLast(BiTreeNode.this);
+            stack.addLast(QuickBiTreeNode.this);
         }
 
         @Override
@@ -632,9 +628,9 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         }
 
         @Override
-        public BiTreeNode<E> next() {
+        public QuickBiTreeNode<E> next() {
             if (!stack.isEmpty()) {
-                BiTreeNode<E> node = stack.pollLast();
+                QuickBiTreeNode<E> node = stack.pollLast();
                 if (node.hasRight()) {
                     stack.addLast(node.getRight());
                 }
@@ -647,12 +643,12 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         }
     }
 
-    class InorderIterator implements Iterator<BiTreeNode<E>> {
+    class InorderIterator implements Iterator<QuickBiTreeNode<E>> {
 
-        private final Deque<BiTreeNode<E>> stack = new LinkedList<>();
+        private final Deque<QuickBiTreeNode<E>> stack = new LinkedList<>();
 
         InorderIterator() {
-            BiTreeNode<E> node = BiTreeNode.this;
+            QuickBiTreeNode<E> node = QuickBiTreeNode.this;
             while (node != null) {
                 stack.addLast(node);
                 node = node.getLeft();
@@ -665,10 +661,10 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         }
 
         @Override
-        public BiTreeNode<E> next() {
+        public QuickBiTreeNode<E> next() {
             if (!stack.isEmpty()) {
-                BiTreeNode<E> node = stack.pollLast();
-                BiTreeNode<E> right = node.getRight();
+                QuickBiTreeNode<E> node = stack.pollLast();
+                QuickBiTreeNode<E> right = node.getRight();
                 while (right != null) {
                     stack.addLast(right);
                     right = right.getLeft();
@@ -679,12 +675,12 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         }
     }
 
-    class PostorderIterator implements Iterator<BiTreeNode<E>> {
+    class PostorderIterator implements Iterator<QuickBiTreeNode<E>> {
 
-        private final Deque<BiTreeNode<E>> stack = new LinkedList<>();
+        private final Deque<QuickBiTreeNode<E>> stack = new LinkedList<>();
 
         PostorderIterator() {
-            stack.addLast(BiTreeNode.this);
+            stack.addLast(QuickBiTreeNode.this);
         }
 
         @Override
@@ -693,12 +689,12 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         }
 
         @Nullable
-        private BiTreeNode<E> pre = null;
+        private QuickBiTreeNode<E> pre = null;
 
         @Override
-        public BiTreeNode<E> next() {
+        public QuickBiTreeNode<E> next() {
             while (!stack.isEmpty()) {
-                BiTreeNode<E> cur = stack.peekLast();
+                QuickBiTreeNode<E> cur = stack.peekLast();
                 if (cur.isLeaf() || cur.isParentOf(pre)) {
                     pre = cur;
                     stack.pollLast();
@@ -716,12 +712,12 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         }
     }
 
-    class LevelorderIterator implements Iterator<BiTreeNode<E>> {
+    class LevelorderIterator implements Iterator<QuickBiTreeNode<E>> {
 
-        private final Deque<BiTreeNode<E>> queue = new LinkedList<>();
+        private final Deque<QuickBiTreeNode<E>> queue = new LinkedList<>();
 
         LevelorderIterator() {
-            queue.addLast(BiTreeNode.this);
+            queue.addLast(QuickBiTreeNode.this);
         }
 
         @Override
@@ -730,9 +726,9 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         }
 
         @Override
-        public BiTreeNode<E> next() {
+        public QuickBiTreeNode<E> next() {
             while (!queue.isEmpty()) {
-                BiTreeNode<E> node = queue.pollFirst();
+                QuickBiTreeNode<E> node = queue.pollFirst();
                 if (node.hasLeft()) {
                     queue.addLast(node.getLeft());
                 }
@@ -745,10 +741,10 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         }
     }
 
-    class LevelIterator implements Iterator<List<BiTreeNode<E>>> {
+    class LevelIterator implements Iterator<List<QuickBiTreeNode<E>>> {
 
-        private final Deque<BiTreeNode<E>> queue = new LinkedList<>();
-        private final Deque<BiTreeNode<E>> next = new LinkedList<>();
+        private final Deque<QuickBiTreeNode<E>> queue = new LinkedList<>();
+        private final Deque<QuickBiTreeNode<E>> next = new LinkedList<>();
 
         private int depth = 0;
         private int currentStack = 0;
@@ -756,7 +752,7 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         private int levelLastStack = 1;
 
         LevelIterator() {
-            queue.addLast(BiTreeNode.this);
+            queue.addLast(QuickBiTreeNode.this);
         }
 
         @Override
@@ -765,9 +761,9 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
         }
 
         @Override
-        public List<BiTreeNode<E>> next() {
+        public List<QuickBiTreeNode<E>> next() {
             while (!queue.isEmpty()) {
-                BiTreeNode<E> node = queue.pollFirst();
+                QuickBiTreeNode<E> node = queue.pollFirst();
                 next.addLast(node);
                 currentStack++;
                 if (node.hasLeft()) {
@@ -781,8 +777,8 @@ public class BiTreeNode<E> extends OfTree<E, BiTreeNode<E>> {
                 if (currentStack == levelLastStack) {
                     depth++;
                     levelLastStack = countStack;
-                    List<BiTreeNode<E>> result = Collections
-                            .unmodifiableList(new ArrayList<>((LinkedList<BiTreeNode<E>>)next));
+                    List<QuickBiTreeNode<E>> result = Collections
+                            .unmodifiableList(new ArrayList<>((LinkedList<QuickBiTreeNode<E>>)next));
                     next.clear();
                     return result;
                 }

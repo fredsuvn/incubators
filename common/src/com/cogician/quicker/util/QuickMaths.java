@@ -15,7 +15,7 @@ import com.cogician.quicker.Quicker;
  * @version 0.0.0, 2015-12-28 09:47:11
  * @since 0.0.0
  */
-public class MathQuicker {
+public class QuickMaths {
 
     /**
      * <p>
@@ -580,8 +580,8 @@ public class MathQuicker {
         int[] a0 = {0};
         int[] a1 = {0};
         int[] a2 = {0};
-        Quicker.each(100000, () -> {
-            int r = RandomQuicker.nextInt(-1, 1);
+        Quicker.each(100000, i -> {
+            int r = QuickRandoms.nextInt(-1, 1);
             // System.out.println(r);
             switch (r) {
                 case 0:
@@ -599,7 +599,7 @@ public class MathQuicker {
         System.out.println("1: " + a1[0]);
         System.out.println("-1: " + a2[0]);
 
-        System.out.println(ToStringQuicker.toString(minPolynomial(20000, 99)));
-        System.out.println(ToStringQuicker.toString(minPolynomial(270, 100)));
+//         System.out.println(QuickToStrings.join(minPolynomial(20000, 99)));
+//         System.out.println(QuickToStrings.join(minPolynomial(270, 100)));
     }
 }

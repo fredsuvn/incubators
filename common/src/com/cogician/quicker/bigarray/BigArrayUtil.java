@@ -3,7 +3,7 @@ package com.cogician.quicker.bigarray;
 import java.lang.reflect.Array;
 
 import com.cogician.quicker.OutOfBoundsException;
-import com.cogician.quicker.util.MathQuicker;
+import com.cogician.quicker.util.QuickMaths;
 
 /**
  * <p>
@@ -31,7 +31,7 @@ class BigArrayUtil {
      * @since 0.0.0
      */
     static int[] caculateDimensions(long length, int blockSize) throws OutOfBoundsException {
-        return MathQuicker.minPolynomial(length, blockSize);
+        return QuickMaths.minPolynomial(length, blockSize);
     }
 
     /**

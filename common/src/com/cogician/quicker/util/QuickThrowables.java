@@ -19,7 +19,7 @@ import com.cogician.quicker.Checker;
  * @version 0.0.0, 2015-10-10 15:56:41
  * @since 0.0.0
  */
-public class ThrowableQuicker {
+public class QuickThrowables {
 
     /**
      * <p>

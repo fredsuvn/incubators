@@ -10,7 +10,7 @@ import com.cogician.quicker.annotation.Nonpublic;
 import com.cogician.quicker.configuration.QConfiguration;
 import com.cogician.quicker.configuration.PropertiesConfigMap;
 import com.cogician.quicker.log.QLogger;
-import com.cogician.quicker.struct.ValueOf;
+import com.cogician.quicker.struct.QuickValue;
 
 /**
  * <p>
@@ -73,7 +73,7 @@ public class QuickerProperties {
      *             if specified key is null
      * @since 0.0.0
      */
-    public static ValueOf<?> get(String key) throws NullPointerException {
+    public static QuickValue<?> get(String key) throws NullPointerException {
         return config.get(key);
     }
 

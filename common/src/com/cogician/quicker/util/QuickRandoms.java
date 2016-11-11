@@ -14,7 +14,7 @@ import com.cogician.quicker.Quicker;
  * @version 0.0.0, 2015-11-09 09:25:14
  * @since 0.0.0
  */
-public class RandomQuicker {
+public class QuickRandoms {
 
     /**
      * <p>
@@ -23,7 +23,7 @@ public class RandomQuicker {
      * 
      * @since 0.0.0
      */
-    private static final ThreadLocal<Random> generator = ThreadLocal.withInitial(RandomQuicker::random);
+    private static final ThreadLocal<Random> generator = ThreadLocal.withInitial(QuickRandoms::random);
 
     private static final Random getGenerator() {
         return generator.get();
@@ -45,7 +45,7 @@ public class RandomQuicker {
         int hash = System.identityHashCode(ret);
         int weakSeed = ((hash & 0x000000ff) << 24) | (int)((nano & 0x00000000000000ffL) << 16)
                 | ((hash & 0xff000000) >> 16) | (int)((nano & 0xff00000000000000L) >>> 56);
-        int[] rsa = MathQuicker.simpleRSAGroup(weakSeed);
+        int[] rsa = QuickMaths.simpleRSAGroup(weakSeed);
         long n = rsa[2] * rsa[3];
         long seed = (long)(Math.pow(seedCount++, rsa[0]) % n);
         ret.setSeed(seed);
@@ -425,7 +425,7 @@ public class RandomQuicker {
      * @since 0.0.0
      */
     public static String nextString(int length, String[] words) throws NullPointerException, IllegalArgumentException {
-        Checker.checkPositiveOr0(length);
+        Checker.checkNonnegative(length);
         Checker.checkNull(words);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {

@@ -1,7 +1,7 @@
 package com.cogician.quicker.bigarray;
 
 import com.cogician.quicker.Quicker;
-import com.cogician.quicker.util.RandomQuicker;
+import com.cogician.quicker.util.QuickRandoms;
 
 /**
  * <p>
@@ -31,8 +31,8 @@ public class TestBigArray {
         ObjectArray<String> strs = new ObjectArray<>(length[0], "haha");
         System.out.println(strs);
         Quicker.each(10, () -> {
-            int index = RandomQuicker.nextInt(0, length[0] - 1);
-            String value = RandomQuicker.nextString(3);
+            int index = QuickRandoms.nextInt(0, length[0] - 1);
+            String value = QuickRandoms.nextString(3);
             strs.set(index, value);
             String result = strs.get(index);
             System.out.println(
@@ -47,8 +47,8 @@ public class TestBigArray {
         System.out.println(strs2);
         // List<Integer> list = new ArrayList<>();
         Quicker.each(2, () -> {
-            int index = RandomQuicker.nextInt(0, length[0] - 1);
-            String value = RandomQuicker.nextString(3);
+            int index = QuickRandoms.nextInt(0, length[0] - 1);
+            String value = QuickRandoms.nextString(3);
             strs2.set(index, value);
             String result = strs2.get(index);
             System.out.println(
@@ -62,8 +62,8 @@ public class TestBigArray {
         ObjectArray<String> strs3 = new ObjectArray<>(length[0], "hei");
         System.out.println(strs3);
         Quicker.each(1, () -> {
-            int index = RandomQuicker.nextInt(0, length[0] - 1);
-            String value = RandomQuicker.nextString(3);
+            int index = QuickRandoms.nextInt(0, length[0] - 1);
+            String value = QuickRandoms.nextString(3);
             strs3.set(index, value);
             String result = strs3.get(index);
             System.out.println(
@@ -79,8 +79,8 @@ public class TestBigArray {
         ByteArray strs = new ByteArray(length[0], (byte)8);
         System.out.println(strs);
         Quicker.each(10, () -> {
-            int index = RandomQuicker.nextInt(0, length[0] - 1);
-            byte value = RandomQuicker.nextByte();
+            int index = QuickRandoms.nextInt(0, length[0] - 1);
+            byte value = QuickRandoms.nextByte();
             strs.set(index, value);
             byte result = strs.get(index);
             System.out.println(
@@ -94,8 +94,8 @@ public class TestBigArray {
         ByteArray str2 = new ByteArray(length[0], (byte)16);
         System.out.println(str2);
         Quicker.each(2, () -> {
-            int index = RandomQuicker.nextInt(0, length[0] - 1);
-            byte value = RandomQuicker.nextByte();
+            int index = QuickRandoms.nextInt(0, length[0] - 1);
+            byte value = QuickRandoms.nextByte();
             str2.set(index, value);
             byte result = str2.get(index);
             System.out.println(
@@ -109,8 +109,8 @@ public class TestBigArray {
         ByteArray str3 = new ByteArray(length[0], (byte)32);
         System.out.println(str3);
         Quicker.each(1, () -> {
-            int index = RandomQuicker.nextInt(0, length[0] - 1);
-            byte value = RandomQuicker.nextByte();
+            int index = QuickRandoms.nextInt(0, length[0] - 1);
+            byte value = QuickRandoms.nextByte();
             str3.set(index, value);
             byte result = str3.get(index);
             System.out.println(
@@ -126,8 +126,8 @@ public class TestBigArray {
         ByteArray strs = new ByteArray(new byte[length[0] + 100], 100, length[0] + 100);
         System.out.println(strs);
         Quicker.each(10, () -> {
-            int index = RandomQuicker.nextInt(0, length[0] - 1);
-            byte value = RandomQuicker.nextByte();
+            int index = QuickRandoms.nextInt(0, length[0] - 1);
+            byte value = QuickRandoms.nextByte();
             strs.set(index, value);
             byte result = strs.get(index);
             System.out.println(
@@ -141,8 +141,8 @@ public class TestBigArray {
         ByteArray str2 = new ByteArray(new byte[length[0]]);
         System.out.println(str2);
         Quicker.each(2, () -> {
-            int index = RandomQuicker.nextInt(0, length[0] - 1);
-            byte value = RandomQuicker.nextByte();
+            int index = QuickRandoms.nextInt(0, length[0] - 1);
+            byte value = QuickRandoms.nextByte();
             str2.set(index, value);
             byte result = str2.get(index);
             System.out.println(
@@ -156,8 +156,8 @@ public class TestBigArray {
         ByteArray str3 = new ByteArray(new byte[length[0]]);
         System.out.println(str3);
         Quicker.each(1, () -> {
-            int index = RandomQuicker.nextInt(0, length[0] - 1);
-            byte value = RandomQuicker.nextByte();
+            int index = QuickRandoms.nextInt(0, length[0] - 1);
+            byte value = QuickRandoms.nextByte();
             str3.set(index, value);
             byte result = str3.get(index);
             System.out.println(

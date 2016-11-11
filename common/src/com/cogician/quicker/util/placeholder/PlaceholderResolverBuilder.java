@@ -1,25 +1,34 @@
 package com.cogician.quicker.util.placeholder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.function.IntPredicate;
 
 import javax.annotation.Nullable;
+import javax.xml.transform.Result;
 
 import com.cogician.quicker.Buildable;
 import com.cogician.quicker.Checker;
 import com.cogician.quicker.Quicker;
+import com.cogician.quicker.struct.TreeNode;
+import com.cogician.quicker.util.ToStringQuicker;
+import com.cogician.quicker.util.lexer.LexTetrad;
 import com.cogician.quicker.util.lexer.LexToken;
+import com.cogician.quicker.util.lexer.QuickLexer;
 import com.cogician.quicker.util.lexer.RegularLexToken;
+import com.cogician.quicker.util.lexer.RegularLexerBuilder;
 
 /**
  * <p>
- * Default builder of {@linkplain QuickPlaceholderResolver}. Placeholder resolver built by this builder is default resolver.
+ * Default builder of {@linkplain QuickPlaceholderResolver}. Placeholder resolver built by this builder is default
+ * resolver.
  * </p>
  * <p>
  * This builder support two-tokens and single token placeholder. If suffix of placeholder is set to null, placeholder
@@ -50,20 +59,20 @@ import com.cogician.quicker.util.lexer.RegularLexToken;
 public class PlaceholderResolverBuilder implements Buildable<QuickPlaceholderResolver> {
 
     static final PlaceholderResolverBuilder DEFAULT_RESOLVER_BUILDER = new PlaceholderResolverBuilder()
-            .setPlacePrefix("${").setPlaceSuffix("}").setRegionPrefix("<[").setRegionSuffix("]>")
-            .setDetermine("?").setEscape("\\");
+            .setPlacePrefix("${").setPlaceSuffix("}").setRegionPrefix("<[").setRegionSuffix("]>").setDetermine("?")
+            .setEscape("\\");
 
     static final QuickPlaceholderResolver DEFAULT_RESOLVER = DEFAULT_RESOLVER_BUILDER.build();
 
     static final PlaceholderResolverBuilder DEFAULT_LOG_RESOLVER_BUILDER = new PlaceholderResolverBuilder()
-            .setPlacePrefix("%").setPlaceSuffix(null).setRegionPrefix("<[").setRegionSuffix("]>")
-            .setDetermine("?").setEscape("\\");
+            .setPlacePrefix("%").setPlaceSuffix(null).setRegionPrefix("<[").setRegionSuffix("]>").setDetermine("?")
+            .setEscape("\\");
 
     static final QuickPlaceholderResolver DEFAULT_LOG_RESOLVER = DEFAULT_LOG_RESOLVER_BUILDER.build();
 
     static final PlaceholderResolverBuilder DEFAULT_SQL_RESOLVER_BUILDER = new PlaceholderResolverBuilder()
-            .setPlacePrefix(":").setPlaceSuffix(null).setRegionPrefix("<[").setRegionSuffix("]>")
-            .setDetermine("?").setEscape("\\");
+            .setPlacePrefix(":").setPlaceSuffix(null).setRegionPrefix("<[").setRegionSuffix("]>").setDetermine("?")
+            .setEscape("\\");
 
     static final QuickPlaceholderResolver DEFAULT_SQL_RESOLVER = DEFAULT_SQL_RESOLVER_BUILDER.build();
 
@@ -230,8 +239,8 @@ public class PlaceholderResolverBuilder implements Buildable<QuickPlaceholderRes
      */
     @Override
     public QuickPlaceholderResolver build() throws IllegalArgumentException {
-        return new DefaultPlaceholderResolver(placePrefix, placeSuffix, regionPrefix, regionSuffix, determine,
-                escape, notFoundPolicy, valueMap);
+        return new DefaultPlaceholderResolver(placePrefix, placeSuffix, regionPrefix, regionSuffix, determine, escape,
+                notFoundPolicy, valueMap);
     }
 
     /**
@@ -293,57 +302,43 @@ public class PlaceholderResolverBuilder implements Buildable<QuickPlaceholderRes
     }
 
     static class DefaultPlaceholderResolver implements QuickPlaceholderResolver {
-    	
-    	private final RegularLexToken PLC_PRE;
-    	
-    	private final RegularLexToken PLC_SUF;
-    	
-    	private final RegularLexToken RGN_PRE;
-    	
-    	private final RegularLexToken RGN_SUF;
-    	
-    	private final RegularLexToken DET;
-    	
-    	private final RegularLexToken ESC;
+
+        private final String PLC_PRE;
+
+        private final String PLC_SUF;
+
+        private final String RGN_PRE;
+
+        private final String RGN_SUF;
+
+        private final String DET;
+
+        private final String ESC;
 
         private final NotFoundPolicy notFoundPolicy;
 
         private final Map<String, ? extends Object> valueMap;
         
-        private final List<LexToken> tokens = new ArrayList<>(6);
-
         DefaultPlaceholderResolver(String placePrefix, @Nullable String placeSuffix, @Nullable String regionPrefix,
-        		@Nullable String regionSuffix, @Nullable String determine, @Nullable String escape, NotFoundPolicy notFoundPolicy,
-        		@Nullable Map<String, ? extends Object> replacedMap) {
-        	if (placePrefix == null){
-        		throw new PlaceholderException("Prefix of placeholder cannot be null.");
-        	}
-        	if ((regionPrefix == null && regionSuffix != null) || (regionPrefix != null && regionSuffix != null)){
-        		throw new PlaceholderException("Region delimiters should in pairs.");
-        	}
-        	Checker.checkNull(notFoundPolicy);
-        	int index = 0;
-            tokens.add(new RegularLexToken("PLC_PRE", placePrefix));
-            
-            if (placeSuffix != null){
-            	tokens.add(new RegularLexToken("PLC_SUF", placePrefix));
+                @Nullable String regionSuffix, @Nullable String determine, @Nullable String escape,
+                NotFoundPolicy notFoundPolicy, @Nullable Map<String, ? extends Object> replacedMap) {
+            Checker.checkNull(notFoundPolicy);
+            if (placePrefix == null) {
+                throw new PlaceholderException("Prefix of placeholder cannot be null.");
             }
-			if (regionPrefix != null){
-				tokens.add(new RegularLexToken("RGN_PRE", placePrefix));       	
-			}
-			if (regionSuffix != null){
-				tokens.add(new RegularLexToken("RGN_SUF", placePrefix));
-			}
-			if (determine != null){
-				tokens.add(new RegularLexToken("DET", placePrefix));
-			}
-			if (escape != null){
-				tokens.add(new RegularLexToken("ESC", placePrefix));
-			}
+            if ((regionPrefix == null && regionSuffix != null) || (regionPrefix != null && regionSuffix != null)) {
+                throw new PlaceholderException("Region delimiters should in pairs.");
+            }
+            this.PLC_PRE = placePrefix;
+            this.PLC_SUF = placeSuffix;
+            this.RGN_PRE = regionPrefix;
+            this.RGN_SUF = regionSuffix;
+            this.DET = determine;
+            this.ESC = escape;
             this.notFoundPolicy = notFoundPolicy;
             this.valueMap = replacedMap;
         }
-
+        
         @Override
         public String resolve(String input)
                 throws NullPointerException, PlaceholderException, UnsupportedOperationException {
@@ -381,6 +376,121 @@ public class PlaceholderResolverBuilder implements Buildable<QuickPlaceholderRes
                 throws NullPointerException, PlaceholderException {
             return resolve(input, name -> getObject(name, valueMap),
                     i -> Character.isDigit((char)i) || Character.isLetter((char)i));
+        }
+        
+        private List<String> tokenize(String input){
+            List<String> list = new LinkedList<>();
+            for (int i = 0;;){
+                
+            }
+            return list;
+        }
+        
+        private String nextToken(String input, int offset){
+            if (input.startsWith(PLC_PRE, offset)){
+                return PLC_PRE;
+            } else if (PLC_SUF != null && input.startsWith(PLC_SUF, offset)){
+                return PLC_SUF;
+            }
+        }
+        
+        private static final TreeNode[] TYPE = {};
+        
+        private TreeNode<Character>[] createParseTree(){
+            List<TreeNode<Character>> list = new ArrayList<>();
+            for (int i = 0;;){
+                int endCount = 0;
+                char c;
+                if (PLC_PRE.length() < i){
+                    c = PLC_PRE.charAt(i);
+                    addTree(list, c);
+                } else {
+                    endCount++;
+                }
+                if (PLC_SUF != null && PLC_SUF.length() < i){
+                    c = PLC_SUF.charAt(i);
+                    addTree(list, c);
+                } else {
+                    endCount++;
+                }
+                if (RGN_PRE != null && RGN_PRE.length() < i){
+                    c = RGN_PRE.charAt(i);
+                    addTree(list, c);
+                } else {
+                    endCount++;
+                }
+                if (RGN_SUF != null && RGN_SUF.length() < i){
+                    c = RGN_SUF.charAt(i);
+                    addTree(list, c);
+                } else {
+                    endCount++;
+                }
+                if (DET != null && DET.length() < i){
+                    c = DET.charAt(i);
+                    addTree(list, c);
+                } else {
+                    endCount++;
+                }
+                if (ESC != null && ESC.length() < i){
+                    c = ESC.charAt(i);
+                    addTree(list, c);
+                } else {
+                    endCount++;
+                }
+                if (endCount >= 6){
+                    break;
+                } else {
+                    i++;
+                }
+            }
+            return list.toArray(TYPE);
+        }
+        
+        private void addTree(List<TreeNode<Character>> list, char c){
+            if (list.isEmpty()){
+                list.add(new TreeNode<Character>(c));
+                return;
+            }
+            for (int i = 0;)
+        }
+        
+        private QuickPlaceholderResolver.Result resolve0(String input, Map<String, ? extends Object> valueMap){
+            
+            
+            
+            
+            List<Entry<String, ?>> entries = new LinkedList<>();
+            StringBuilder sb = new StringBuilder();
+            int plc = 0;
+            int rgn = 0;
+            for (int i = 0; i < tetrads.size(); i++){
+                LexTetrad tetrad = tetrads.get(i);
+            }
+            return new QuickPlaceholderResolver.Result(){
+                
+                final String finalStr = sb.toString();
+                
+                final List<Entry<String, ?>> finalEntries = Collections.unmodifiableList(entries);
+
+                @Override
+                public String getFinalString() {
+                    return finalStr;
+                }
+
+                @Override
+                public List<Entry<String, ?>> getUsedArguments() {
+                    return finalEntries;
+                }
+                
+            }
+        }
+        
+        private String doPlaceholder(List<LexTetrad> tetrads, List<Entry<String, ?>> entries){
+            return null;
+        }
+        
+        private String doRegion(List<LexTetrad> tetrads, List<Entry<String, ?>> entries){
+            return null;
         }
 
         private QuickPlaceholderResolver.Result resolve(String input, Function<String, Object> getObject,

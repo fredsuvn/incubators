@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 
 import com.cogician.quicker.Checker;
 import com.cogician.quicker.Quicker;
-import com.cogician.quicker.util.QuiCollections;
+import com.cogician.quicker.util.QuickCollections;
 import com.cogician.quicker.util.calculator.CalculatorFunction.CalculatorFunctionRef;
 import com.cogician.quicker.util.lexer.ParsingException;
 

@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.channels.FileChannel.MapMode;
 
 import com.cogician.quicker.Quicker;
-import com.cogician.quicker.util.ToStringQuicker;
+import com.cogician.quicker.util.tostring.QuickToStrings;
 
 /**
  * <p>
@@ -223,6 +223,6 @@ public class TestBinary {
         bq.getLast();
         bq.pollLast();
         bq.pollFirst();
-        System.out.println(ToStringQuicker.toString(bq.toArray()));
+        System.out.println(QuickToStrings.toString(bq.toArray()));
     }
 }

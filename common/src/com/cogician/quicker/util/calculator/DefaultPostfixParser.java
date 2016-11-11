@@ -11,8 +11,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 import com.cogician.quicker.Quicker;
-import com.cogician.quicker.struct.Case;
-import com.cogician.quicker.struct.Switch;
+import com.cogician.quicker.struct.QuickCase;
+import com.cogician.quicker.struct.QuickSwitch;
 import com.cogician.quicker.struct.SwitchBuilder;
 import com.cogician.quicker.util.Consts;
 import com.cogician.quicker.util.calculator.CalculatorFunction.CalculatorFunctionRef;
@@ -152,95 +152,95 @@ class DefaultPostfixParser implements PostfixParser {
         e.status[0] = STATUS.COMMA;
     };
 
-    private static final Case<ParserEnvironment> DEFAULT_FAILED_CASE = new Case<ParserEnvironment>(null, null,
+    private static final QuickCase<ParserEnvironment> DEFAULT_FAILED_CASE = new QuickCase<ParserEnvironment>(null, null,
             (Predicate<ParserEnvironment>)(e -> {
                 throw e.parser.parsingFailed(e.tetrad);
             }));
 
-    private static final Case<ParserEnvironment> CASE_UNARY_POS = new Case<ParserEnvironment>(null, TEST_UNARY_POS,
+    private static final QuickCase<ParserEnvironment> CASE_UNARY_POS = new QuickCase<ParserEnvironment>(null, TEST_UNARY_POS,
             ACTION_UNARY_POS);
 
-    private static final Case<ParserEnvironment> CASE_UNARY_NEG = new Case<ParserEnvironment>(null, TEST_UNARY_NEG,
+    private static final QuickCase<ParserEnvironment> CASE_UNARY_NEG = new QuickCase<ParserEnvironment>(null, TEST_UNARY_NEG,
             ACTION_UNARY_NEG);
 
-    private static final Case<ParserEnvironment> CASE_UNARY_NOT = new Case<ParserEnvironment>(null, TEST_UNARY_NOT,
+    private static final QuickCase<ParserEnvironment> CASE_UNARY_NOT = new QuickCase<ParserEnvironment>(null, TEST_UNARY_NOT,
             ACTION_UNARY_NOT);
 
-    private static final Case<ParserEnvironment> CASE_IDENTIFIER = new Case<ParserEnvironment>(null, TEST_IDENTIFIER,
+    private static final QuickCase<ParserEnvironment> CASE_IDENTIFIER = new QuickCase<ParserEnvironment>(null, TEST_IDENTIFIER,
             ACTION_IDENTIFIER);
 
-    private static final Case<ParserEnvironment> CASE_IDENTIFIER_MUL = new Case<ParserEnvironment>(null,
+    private static final QuickCase<ParserEnvironment> CASE_IDENTIFIER_MUL = new QuickCase<ParserEnvironment>(null,
             TEST_IDENTIFIER, ACTION_IDENTIFIER_MUL);
 
-    private static final Case<ParserEnvironment> CASE_NUMBER = new Case<ParserEnvironment>(null, TEST_NUMBER,
+    private static final QuickCase<ParserEnvironment> CASE_NUMBER = new QuickCase<ParserEnvironment>(null, TEST_NUMBER,
             ACTION_NUMBER);
 
-    private static final Case<ParserEnvironment> CASE_NUMBER_MUL = new Case<ParserEnvironment>(null, TEST_NUMBER,
+    private static final QuickCase<ParserEnvironment> CASE_NUMBER_MUL = new QuickCase<ParserEnvironment>(null, TEST_NUMBER,
             ACTION_NUMBER_MUL);
 
-    private static final Case<ParserEnvironment> CASE_LEFT_BRA = new Case<ParserEnvironment>(null, TEST_LEFT_BRA,
+    private static final QuickCase<ParserEnvironment> CASE_LEFT_BRA = new QuickCase<ParserEnvironment>(null, TEST_LEFT_BRA,
             ACTION_LEFT_BRA);
 
-    private static final Case<ParserEnvironment> CASE_LEFT_BRA_MUL = new Case<ParserEnvironment>(null, TEST_LEFT_BRA,
+    private static final QuickCase<ParserEnvironment> CASE_LEFT_BRA_MUL = new QuickCase<ParserEnvironment>(null, TEST_LEFT_BRA,
             ACTION_LEFT_BRA_MUL);
 
-    private static final Case<ParserEnvironment> CASE_RIGHT_BRA = new Case<ParserEnvironment>(null, TEST_RIGHT_BRA,
+    private static final QuickCase<ParserEnvironment> CASE_RIGHT_BRA = new QuickCase<ParserEnvironment>(null, TEST_RIGHT_BRA,
             ACTION_RIGHT_BRA);
 
-    private static final Case<ParserEnvironment> CASE_OPERATOR = new Case<ParserEnvironment>(null, TEST_OPERATOR,
+    private static final QuickCase<ParserEnvironment> CASE_OPERATOR = new QuickCase<ParserEnvironment>(null, TEST_OPERATOR,
             ACTION_OPERATOR);
 
-    private static final Case<ParserEnvironment> CASE_COMMA = new Case<ParserEnvironment>(null, TEST_COMMA,
+    private static final QuickCase<ParserEnvironment> CASE_COMMA = new QuickCase<ParserEnvironment>(null, TEST_COMMA,
             ACTION_COMMA);
 
     @SuppressWarnings("unchecked")
-    private static final Switch<ParserEnvironment> SWITCH_START_STATUS = new SwitchBuilder<ParserEnvironment>()
+    private static final QuickSwitch<ParserEnvironment> SWITCH_START_STATUS = new SwitchBuilder<ParserEnvironment>()
             .addCases(CASE_UNARY_POS, CASE_UNARY_NEG, CASE_UNARY_NOT, CASE_IDENTIFIER, CASE_NUMBER, CASE_LEFT_BRA)
             .setDefaultCase(DEFAULT_FAILED_CASE).build();
 
-    private static final Switch<ParserEnvironment> SWITCH_UNARY_OPE_STATUS = SWITCH_START_STATUS;
+    private static final QuickSwitch<ParserEnvironment> SWITCH_UNARY_OPE_STATUS = SWITCH_START_STATUS;
 
-    private static final Switch<ParserEnvironment> SWITCH_IDENTIFIER_STATUS = new SwitchBuilder<ParserEnvironment>()
+    private static final QuickSwitch<ParserEnvironment> SWITCH_IDENTIFIER_STATUS = new SwitchBuilder<ParserEnvironment>()
             .addCase(CASE_LEFT_BRA).setDefaultCase(DEFAULT_FAILED_CASE).build();
 
     @SuppressWarnings("unchecked")
-    private static final Switch<ParserEnvironment> SWITCH_NUMBER_STATUS = new SwitchBuilder<ParserEnvironment>()
+    private static final QuickSwitch<ParserEnvironment> SWITCH_NUMBER_STATUS = new SwitchBuilder<ParserEnvironment>()
             .addCases(CASE_OPERATOR, CASE_IDENTIFIER_MUL, CASE_COMMA, CASE_LEFT_BRA_MUL, CASE_RIGHT_BRA)
             .setDefaultCase(DEFAULT_FAILED_CASE).build();
 
-    private static final Switch<ParserEnvironment> SWITCH_BINARY_OPE_STATUS = SWITCH_START_STATUS;
+    private static final QuickSwitch<ParserEnvironment> SWITCH_BINARY_OPE_STATUS = SWITCH_START_STATUS;
 
     @SuppressWarnings("unchecked")
-    private static final Switch<ParserEnvironment> SWITCH_LEFT_BRA_STATUS = new SwitchBuilder<ParserEnvironment>()
+    private static final QuickSwitch<ParserEnvironment> SWITCH_LEFT_BRA_STATUS = new SwitchBuilder<ParserEnvironment>()
             .addCases(CASE_UNARY_POS, CASE_UNARY_NEG, CASE_UNARY_NOT, CASE_IDENTIFIER, CASE_NUMBER, CASE_LEFT_BRA,
                     CASE_RIGHT_BRA)
             .setDefaultCase(DEFAULT_FAILED_CASE).build();
 
     @SuppressWarnings("unchecked")
-    private static final Switch<ParserEnvironment> SWITCH_RIGHT_BRA_STATUS = new SwitchBuilder<ParserEnvironment>()
+    private static final QuickSwitch<ParserEnvironment> SWITCH_RIGHT_BRA_STATUS = new SwitchBuilder<ParserEnvironment>()
             .addCases(CASE_UNARY_POS, CASE_UNARY_NEG, CASE_UNARY_NOT, CASE_IDENTIFIER_MUL, CASE_NUMBER_MUL,
                     CASE_OPERATOR, CASE_LEFT_BRA_MUL, CASE_RIGHT_BRA, CASE_COMMA)
             .setDefaultCase(DEFAULT_FAILED_CASE).build();
 
-    private static final Switch<ParserEnvironment> SWITCH_COMMA_STATUS = SWITCH_START_STATUS;
+    private static final QuickSwitch<ParserEnvironment> SWITCH_COMMA_STATUS = SWITCH_START_STATUS;
 
     @SuppressWarnings("unchecked")
-    private static final Switch<ParserEnvironment> parsingSwitch = new SwitchBuilder<ParserEnvironment>()
-            .addCases(new Case<ParserEnvironment>(null, e -> e.status[0] == STATUS.START, e -> {
+    private static final QuickSwitch<ParserEnvironment> parsingSwitch = new SwitchBuilder<ParserEnvironment>()
+            .addCases(new QuickCase<ParserEnvironment>(null, e -> e.status[0] == STATUS.START, e -> {
                 SWITCH_START_STATUS.perform(e);
-            })).addCases(new Case<ParserEnvironment>(null, e -> e.status[0] == STATUS.UNARY_OPE, e -> {
+            })).addCases(new QuickCase<ParserEnvironment>(null, e -> e.status[0] == STATUS.UNARY_OPE, e -> {
                 SWITCH_UNARY_OPE_STATUS.perform(e);
-            })).addCases(new Case<ParserEnvironment>(null, e -> e.status[0] == STATUS.IDENTIFIER, e -> {
+            })).addCases(new QuickCase<ParserEnvironment>(null, e -> e.status[0] == STATUS.IDENTIFIER, e -> {
                 SWITCH_IDENTIFIER_STATUS.perform(e);
-            })).addCases(new Case<ParserEnvironment>(null, e -> e.status[0] == STATUS.NUMBER, e -> {
+            })).addCases(new QuickCase<ParserEnvironment>(null, e -> e.status[0] == STATUS.NUMBER, e -> {
                 SWITCH_NUMBER_STATUS.perform(e);
-            })).addCases(new Case<ParserEnvironment>(null, e -> e.status[0] == STATUS.BINARY_OPE, e -> {
+            })).addCases(new QuickCase<ParserEnvironment>(null, e -> e.status[0] == STATUS.BINARY_OPE, e -> {
                 SWITCH_BINARY_OPE_STATUS.perform(e);
-            })).addCases(new Case<ParserEnvironment>(null, e -> e.status[0] == STATUS.LEFT_BRA, e -> {
+            })).addCases(new QuickCase<ParserEnvironment>(null, e -> e.status[0] == STATUS.LEFT_BRA, e -> {
                 SWITCH_LEFT_BRA_STATUS.perform(e);
-            })).addCases(new Case<ParserEnvironment>(null, e -> e.status[0] == STATUS.RIGHT_BRA, e -> {
+            })).addCases(new QuickCase<ParserEnvironment>(null, e -> e.status[0] == STATUS.RIGHT_BRA, e -> {
                 SWITCH_RIGHT_BRA_STATUS.perform(e);
-            })).addCases(new Case<ParserEnvironment>(null, e -> e.status[0] == STATUS.COMMA, e -> {
+            })).addCases(new QuickCase<ParserEnvironment>(null, e -> e.status[0] == STATUS.COMMA, e -> {
                 SWITCH_COMMA_STATUS.perform(e);
             })).setDefaultCase(DEFAULT_FAILED_CASE).build();
 

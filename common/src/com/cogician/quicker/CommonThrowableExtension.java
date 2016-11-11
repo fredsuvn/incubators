@@ -14,7 +14,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import com.cogician.quicker.util.ThrowableQuicker;
+import com.cogician.quicker.util.QuickThrowables;
 
 /**
  * <p>
@@ -39,7 +39,7 @@ public interface CommonThrowableExtension {
      * @since 0.0.0
      */
     default String getStackTraceAsString() {
-        return ThrowableQuicker.getStackTrace((Throwable)this);
+        return QuickThrowables.getStackTrace((Throwable)this);
     }
 
     /**
@@ -55,7 +55,7 @@ public interface CommonThrowableExtension {
      * @since 0.0.0
      */
     default void printStackTrace(final OutputStream out) throws NullPointerException {
-        ThrowableQuicker.printStackTrace((Throwable)this, out);
+        QuickThrowables.printStackTrace((Throwable)this, out);
     }
 
     /**
@@ -71,7 +71,7 @@ public interface CommonThrowableExtension {
      * @since 0.0.0
      */
     default void printStackTrace(final Writer writer) throws NullPointerException {
-        ThrowableQuicker.printStackTrace((Throwable)this, writer);
+        QuickThrowables.printStackTrace((Throwable)this, writer);
     }
 
     /**
@@ -84,7 +84,7 @@ public interface CommonThrowableExtension {
      * @since 0.0.0
      */
     default Throwable[] getCauseChain() {
-        return ThrowableQuicker.getCauseChain((Throwable)this);
+        return QuickThrowables.getCauseChain((Throwable)this);
     }
 
     /**
@@ -97,7 +97,7 @@ public interface CommonThrowableExtension {
      * @since 0.0.0
      */
     default List<Throwable> getCauseChainList() {
-        return ThrowableQuicker.getCauseChainList((Throwable)this);
+        return QuickThrowables.getCauseChainList((Throwable)this);
     }
 
     /**
@@ -110,6 +110,6 @@ public interface CommonThrowableExtension {
      * @since 0.0.0
      */
     default @Nullable Throwable getRootCause() {
-        return ThrowableQuicker.getRootCause((Throwable)this);
+        return QuickThrowables.getRootCause((Throwable)this);
     }
 }

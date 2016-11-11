@@ -6,6 +6,7 @@ import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.util.TimeZone;
 
 import com.cogician.quicker.Quicker;
 
@@ -18,7 +19,7 @@ import com.cogician.quicker.Quicker;
  * @version 0.0.0, 2016-04-29T14:02:38+08:00
  * @since 0.0.0, 2016-04-29T14:02:38+08:00
  */
-public class TimeQuicker {
+public class QuickClocks {
 
     /**
      * <p>
@@ -27,7 +28,7 @@ public class TimeQuicker {
      * 
      * @since 0.0.0
      */
-    public static final String SIMPLE_PATTERN = "uuuu-MM-dd HH:mm:ss Z";
+    public static final String HUMANISM_PATTERN = "uuuu-MM-dd HH:mm:ss Z";
 
     /**
      * <p>
@@ -36,7 +37,7 @@ public class TimeQuicker {
      * 
      * @since 0.0.0
      */
-    public static final DateTimeFormatter SIMPLE_FORMATTER = DateTimeFormatter.ofPattern(SIMPLE_PATTERN);
+    public static final DateTimeFormatter HUMANISM_FORMATTER = DateTimeFormatter.ofPattern(HUMANISM_PATTERN);
 
     /**
      * <p>
@@ -47,6 +48,9 @@ public class TimeQuicker {
      * @since 0.0.0
      */
     public static ZoneOffset defaultOffset() {
+//        return ZoneOffset.systemDefault().getRules().getOffset(instant)
+//        TimeZone.getDefault().toZoneId();
+//        ZoneOffset.systemDefault();
         return ZoneOffset.systemDefault().getRules().getOffset(Instant.now());
     }
 
@@ -84,13 +88,13 @@ public class TimeQuicker {
 
     /**
      * <p>
-     * Returns a string of now date time of simple format as {@linkplain #SIMPLE_PATTERN}.
+     * Returns a string of now date time of simple format as {@linkplain #HUMANISM_PATTERN}.
      * </p>
      * 
-     * @return a string of now date time of simple format as {@linkplain #SIMPLE_PATTERN}
+     * @return a string of now date time of simple format as {@linkplain #HUMANISM_PATTERN}
      * @since 0.0.0
      */
     public static String now() {
-        return OffsetDateTime.now().format(SIMPLE_FORMATTER);
+        return OffsetDateTime.now().format(HUMANISM_FORMATTER);
     }
 }

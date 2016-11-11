@@ -8,7 +8,9 @@ package com.cogician.quicker.struct;
  *
  * @author Fred Suvn
  * @version 0.0.0, 2015-05-23 14:46:40
+ * @deprecated This class is beta and its name lack of standardization.
  */
+@Deprecated
 public class ArrayPos {
     /**
      * Commonly is index of a array, but can also be a value represents other.

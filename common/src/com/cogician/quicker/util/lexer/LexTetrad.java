@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.annotation.concurrent.Immutable;
 
 import com.cogician.quicker.Quicker;
-import com.cogician.quicker.Uniforms;
+import com.cogician.quicker.QuickerUniform;
 
 /**
  * <p>
@@ -45,8 +45,8 @@ public class LexTetrad implements Serializable {
     public LexTetrad(String lexeme, LexToken token) throws NullPointerException {
         this.lexeme = Quicker.require(lexeme);
         this.token = Quicker.require(token);
-        this.row = Uniforms.INVALID_CODE;
-        this.column = Uniforms.INVALID_CODE;
+        this.row = QuickerUniform.INVALID_CODE;
+        this.column = QuickerUniform.INVALID_CODE;
     }
 
     /**
@@ -99,7 +99,7 @@ public class LexTetrad implements Serializable {
 
     /**
      * <p>
-     * Returns row number of this lexcial tetrad. If returned number is {@linkplain Uniforms#INVALID_CODE}, it means the
+     * Returns row number of this lexcial tetrad. If returned number is {@linkplain QuickerUniform#INVALID_CODE}, it means the
      * row number is invalid or has not been recorded.
      * </p>
      * 
@@ -112,7 +112,7 @@ public class LexTetrad implements Serializable {
 
     /**
      * <p>
-     * Returns column number of this lexcial tetrad. If returned number is {@linkplain Uniforms#INVALID_CODE}, it means
+     * Returns column number of this lexcial tetrad. If returned number is {@linkplain QuickerUniform#INVALID_CODE}, it means
      * the column number is invalid or has not been recorded.
      * </p>
      * 

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.function.Function;
 
 import com.cogician.quicker.Quicker;
-import com.cogician.quicker.Uniforms;
+import com.cogician.quicker.QuickerUniform;
 import com.cogician.quicker.util.Patterns;
 
 /**
@@ -30,7 +30,7 @@ public class CalculatorFunction {
      * 
      * @since 0.0.0
      */
-    public static final int ARG_NUM_VARIABLE = Uniforms.INVALID_CODE;
+    public static final int ARG_NUM_VARIABLE = QuickerUniform.INVALID_CODE;
 
     /**
      * <p>

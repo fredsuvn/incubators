@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
  * @version 0.0.0, 2016-05-18T16:51:58+08:00
  * @since 0.0.0, 2016-05-18T16:51:58+08:00
  */
-public class BoxOf<T> {
+public class QuickBox<T> {
 
     @Nullable
     private T value;
@@ -23,7 +23,7 @@ public class BoxOf<T> {
      * 
      * @since 0.0.0
      */
-    public BoxOf() {
+    public QuickBox() {
 
     }
 
@@ -36,7 +36,7 @@ public class BoxOf<T> {
      *            given value
      * @since 0.0.0
      */
-    public BoxOf(@Nullable T value) {
+    public QuickBox(@Nullable T value) {
         set(value);
     }
 

@@ -17,7 +17,7 @@ import javax.annotation.concurrent.ThreadSafe;
 import com.cogician.quicker.Quicker;
 import com.cogician.quicker.ReadException;
 import com.cogician.quicker.WriteException;
-import com.cogician.quicker.struct.ValueOf;
+import com.cogician.quicker.struct.QuickValue;
 import com.cogician.quicker.util.PathQuicker;
 import com.cogician.quicker.util.placeholder.QuickPlaceholderResolver;
 import com.sun.istack.internal.Nullable;
@@ -47,7 +47,7 @@ public class PropertiesConfigMap implements QConfiguration {
 
     private final URI uri;
 
-    private final Map<String, ValueOf<?>> map = createContainer();
+    private final Map<String, QuickValue<?>> map = createContainer();
 
     private final QuickPlaceholderResolver resolver;
 
@@ -185,7 +185,7 @@ public class PropertiesConfigMap implements QConfiguration {
             prop.load(in);
             map.clear();
             prop.forEach((k, v) -> {
-                map.put(k.toString(), ValueOf.wrap(v));
+                map.put(k.toString(), QuickValue.wrap(v));
             });
             prop.clear();
             in.close();
@@ -205,8 +205,8 @@ public class PropertiesConfigMap implements QConfiguration {
      * @return a map used to contain all the property-pairs
      * @since 0.0.0
      */
-    protected Map<String, ValueOf<?>> createContainer() {
-        return new HashMap<String, ValueOf<?>>();
+    protected Map<String, QuickValue<?>> createContainer() {
+        return new HashMap<String, QuickValue<?>>();
     }
 
     @Override
@@ -230,26 +230,26 @@ public class PropertiesConfigMap implements QConfiguration {
     }
 
     @Override
-    public ValueOf<?> get(Object key) {
+    public QuickValue<?> get(Object key) {
         return map.get(Quicker.require(key));
     }
 
     @Override
-    public ValueOf<?> put(String key, ValueOf<?> value) {
+    public QuickValue<?> put(String key, QuickValue<?> value) {
         if (null != resolver) {
             String v = resolver.resolve(value.asString(), this);
-            return map.put(Quicker.require(key), v == value.asString() ? value : ValueOf.wrap(v));
+            return map.put(Quicker.require(key), v == value.asString() ? value : QuickValue.wrap(v));
         }
         return map.put(Quicker.require(key), value);
     }
 
     @Override
-    public ValueOf<?> remove(Object key) {
+    public QuickValue<?> remove(Object key) {
         return map.remove(Quicker.require(key));
     }
 
     @Override
-    public void putAll(Map<? extends String, ? extends ValueOf<?>> m) {
+    public void putAll(Map<? extends String, ? extends QuickValue<?>> m) {
         if (null != m) {
             m.forEach((k, v) -> {
                 put(k, v);
@@ -268,19 +268,19 @@ public class PropertiesConfigMap implements QConfiguration {
     }
 
     @Override
-    public Collection<ValueOf<?>> values() {
+    public Collection<QuickValue<?>> values() {
         return map.values();
     }
 
     @Override
-    public Set<java.util.Map.Entry<String, ValueOf<?>>> entrySet() {
+    public Set<java.util.Map.Entry<String, QuickValue<?>>> entrySet() {
         return map.entrySet();
     }
 
     @Override
     public QConfiguration getConfig(String key) throws NullPointerException {
         String nonnullKey = Quicker.require(key);
-        Map<String, ValueOf<?>> result = new ConcurrentHashMap<>();
+        Map<String, QuickValue<?>> result = new ConcurrentHashMap<>();
         map.forEach((k, v) -> {
             if (k.startsWith(nonnullKey + ".")) {
                 result.put(k, v);
@@ -321,9 +321,9 @@ public class PropertiesConfigMap implements QConfiguration {
 
     private static class ReadOnlyConfigMap implements QConfiguration {
 
-        private final Map<String, ValueOf<?>> map;
+        private final Map<String, QuickValue<?>> map;
 
-        private ReadOnlyConfigMap(Map<String, ValueOf<?>> map) {
+        private ReadOnlyConfigMap(Map<String, QuickValue<?>> map) {
             this.map = map;
         }
 
@@ -348,22 +348,22 @@ public class PropertiesConfigMap implements QConfiguration {
         }
 
         @Override
-        public ValueOf<?> get(Object key) {
+        public QuickValue<?> get(Object key) {
             return map.get(Quicker.require(key));
         }
 
         @Override
-        public ValueOf<?> put(String key, ValueOf<?> value) {
+        public QuickValue<?> put(String key, QuickValue<?> value) {
             throw new UnsupportedOperationException();
         }
 
         @Override
-        public ValueOf<?> remove(Object key) {
+        public QuickValue<?> remove(Object key) {
             throw new UnsupportedOperationException();
         }
 
         @Override
-        public void putAll(Map<? extends String, ? extends ValueOf<?>> m) {
+        public void putAll(Map<? extends String, ? extends QuickValue<?>> m) {
             throw new UnsupportedOperationException();
         }
 
@@ -378,19 +378,19 @@ public class PropertiesConfigMap implements QConfiguration {
         }
 
         @Override
-        public Collection<ValueOf<?>> values() {
+        public Collection<QuickValue<?>> values() {
             return map.values();
         }
 
         @Override
-        public Set<java.util.Map.Entry<String, ValueOf<?>>> entrySet() {
+        public Set<java.util.Map.Entry<String, QuickValue<?>>> entrySet() {
             return map.entrySet();
         }
 
         @Override
         public QConfiguration getConfig(String key) throws NullPointerException {
             String nonnullKey = Quicker.require(key);
-            Map<String, ValueOf<?>> result = new ConcurrentHashMap<>();
+            Map<String, QuickValue<?>> result = new ConcurrentHashMap<>();
             map.forEach((k, v) -> {
                 if (k.startsWith(nonnullKey + ".")) {
                     result.put(k, v);

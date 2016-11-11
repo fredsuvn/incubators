@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import javax.annotation.concurrent.ThreadSafe;
 
 import com.cogician.quicker.ReadException;
-import com.cogician.quicker.struct.ValueOf;
+import com.cogician.quicker.struct.QuickValue;
 import com.cogician.quicker.util.placeholder.QuickPlaceholderResolver;
 import com.sun.istack.internal.Nullable;
 
@@ -142,7 +142,7 @@ public class ConcurrentPropertiesConfigMap extends PropertiesConfigMap {
     }
 
     @Override
-    protected Map<String, ValueOf<?>> createContainer() {
+    protected Map<String, QuickValue<?>> createContainer() {
         return new ConcurrentHashMap<>();
     }
 }

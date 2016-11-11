@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 
 import com.cogician.quicker.Buildable;
 import com.cogician.quicker.Quicker;
-import com.cogician.quicker.Uniforms;
+import com.cogician.quicker.QuickerUniform;
 import com.cogician.quicker.util.placeholder.QuickPlaceholderResolver;
 import com.cogician.quicker.util.placeholder.PlaceholderException;
 
@@ -466,17 +466,17 @@ public interface QLogger {
 
         private static final QuickPlaceholderResolver resolver = QuickPlaceholderResolver.defaultLogResolver();
 
-        private Locale locale = Uniforms.LOCALE;
+        private Locale locale = QuickerUniform.LOCALE;
 
-        private ZoneOffset offset = Uniforms.ZONE_OFFSET;
+        private ZoneOffset offset = QuickerUniform.ZONE_OFFSET;
 
-        private Charset charset = Uniforms.CHARSET;
+        private Charset charset = QuickerUniform.CHARSET;
 
         private int level = QLogger.OFF;
 
         private OutputStream out = System.out;
 
-        private DateTimeFormatter datetimeFormatter = Uniforms.DATETIME_FORMATTER;
+        private DateTimeFormatter datetimeFormatter = QuickerUniform.DATETIME_FORMATTER;
 
         private String format = null;
 
@@ -675,11 +675,11 @@ public interface QLogger {
                                 args.put("l", stack[cur].getClassName() + "." + stack[cur].getMethodName() + "(line: "
                                         + stack[cur].getLineNumber() + ")");
                             }
-                            byte[] bs = (resolver.resolve(format, args) + Uniforms.LINE_SEPARATOR).getBytes(charset);
+                            byte[] bs = (resolver.resolve(format, args) + QuickerUniform.LINE_SEPARATOR).getBytes(charset);
                             out.write(bs);
                             out.flush();
                         } catch (PlaceholderException p) {
-                            byte[] bs = ("Logger format error: " + format + "." + Uniforms.LINE_SEPARATOR)
+                            byte[] bs = ("Logger format error: " + format + "." + QuickerUniform.LINE_SEPARATOR)
                                     .getBytes(charset);
                             try {
                                 out.write(bs);

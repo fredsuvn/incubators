@@ -20,8 +20,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 import com.cogician.quicker.Quicker;
-import com.cogician.quicker.util.ThreadQuicker;
-import com.cogician.quicker.util.ToStringQuicker;
+import com.cogician.quicker.util.QuickThreads;
+import com.cogician.quicker.util.tostring.QuickToStrings;
 
 /**
  * <p>
@@ -84,7 +84,7 @@ public class Essay {
     }
 
     public static void showStack() {
-        System.out.println(ToStringQuicker.toString(Thread.currentThread().getStackTrace()));
+        System.out.println(QuickToStrings.toString(Thread.currentThread().getStackTrace()));
     }
 
     public static void testForeach() {
@@ -203,7 +203,7 @@ public class Essay {
         System.out.println(f.length());
         f2.getFD().sync();
         System.out.println(f.length());
-        ThreadQuicker.start(() -> {
+        QuickThreads.start(() -> {
             try {
                 f2.seek(f2.length());
                 for (int i = 0; i < 10086; i++) {
