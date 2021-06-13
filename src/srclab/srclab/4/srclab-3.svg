@@ -1,0 +1,51 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <title>SrcLab</title>
+  <g>
+    <!-- 43.3 -->
+    <path id="element-color-1"
+          d="M50,50 m0,-50 a50,50,1,0,0,-43.3,25 L50,50 z"
+          stroke="none" stroke-width="none"
+          fill="LimeGreen"
+    />
+    <path id="element-color-2"
+          d="M50,50 m-43.5,-25 a50,50,1,0,0,0,50 L50,50 z"
+          stroke="none" stroke-width="none"
+          fill="RoyalBlue"
+    />
+    <path id="element-color-3"
+          d="M50,50 m-43.5,25 a50,50,1,0,0,43.5,25 L50,50 z"
+          stroke="none" stroke-width="none"
+          fill="BlueViolet"
+    />
+    <path id="element-color-4"
+          d="M50,50 m0,50 a50,50,1,0,0,43.5,-25 L50,50 z"
+          stroke="none" stroke-width="none"
+          fill="Violet"
+    />
+    <path id="element-color-5"
+          d="M50,50 m43.5,25 a50,50,1,0,0,0,-50 L50,50 z"
+          stroke="none" stroke-width="none"
+          fill="Crimson"
+    />
+    <path id="element-color-6"
+          d="M50,50 m43.5,-25 a50,50,1,0,0,-43.5,-25 L50,50 z"
+          stroke="none" stroke-width="none"
+          fill="Orange"
+    />
+    <circle
+      cx="50" cy="50" r="25"
+      stroke="none" stroke-width="none"
+      fill="White"
+    />
+    <path id="element-S"
+          d="M40,50 m8,-14 l-8,0 l-8,14 l16,0 l-8,14 l-8,0"
+          stroke="Black" stroke-width="5"
+          fill="none"
+    />
+    <path id="element-L"
+          d="M60,50 m1,-16 l-11,30 l18,0"
+          stroke="Black" stroke-width="5"
+          fill="none"
+    />
+  </g>
+</svg>

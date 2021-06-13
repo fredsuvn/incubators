@@ -1,0 +1,33 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <title>SrcLab</title>
+    <path id="svg-S"
+          d="M45,14.832 L45,6.18 L5,6.18 L5,27.192 L45,27.192 L45,55.62 L5,55.62 L5,43.26"
+          stroke="Orange" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="svg-r1"
+          d="M55,40 L55,20 L70,20 L70,30 L55,30"
+          stroke="OrangeRed" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="svg-r2"
+          d="M63,30 L73,40"
+          stroke="OrangeRed" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="svg-c"
+          d="M95,20 L80,20 L80,40 L95,40"
+          stroke="Lime" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="svg-L"
+          d="M55,44.5 L55,93.82 L95,93.82"
+          stroke="RoyalBlue" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="svg-a"
+          d="M30,75 L45,75 L45,95 L30,95 L30,85 L45,85"
+          stroke="Fuchsia" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="svg-b"
+          d="M5,65 L5,95 L20,95 L20,85 L5,85"
+          stroke="Gold" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+  </g>
+</svg>

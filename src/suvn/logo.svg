@@ -1,0 +1,58 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <title>Suvn</title>
+  <g id="group-back">
+    <rect id="back-global" x="0" y="0" width="100%" height="100%" fill="#3f3f3f" stroke="none"/>
+  </g>
+  <g id="group-hive"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="OrangeRed" stroke-width="2" fill="#fefefe" filter="url(#filter-light)"
+  >
+    <path id="hive-t"
+          d="M60,26 m-10,-17 l20,0 l10,17 l-10,17 l-20,0 l-10,-17 l10,-17"
+    />
+    <path id="hive-rt"
+          d="M90,43 m-10,-17 l20,0 l10,17 l-10,17 l-20,0 l-10,-17 l10,-17"
+    />
+    <path id="hive-rb"
+          d="M90,77.1 m-10,-17 l20,0 l10,17 l-10,17 l-20,0 l-10,-17 l10,-17"
+    />
+    <path id="hive-b"
+          d="M60,94 m-10,-17 l20,0 l10,17 l-10,17 l-20,0 l-10,-17 l10,-17"
+    />
+    <path id="hive-lb"
+          d="M30,77.1 m-10,-17 l20,0 l10,17 l-10,17 l-20,0 l-10,-17 l10,-17"
+    />
+    <path id="hive-lt"
+          d="M30,43 m-10,-17 l20,0 l10,17 l-10,17 l-20,0 l-10,-17 l10,-17"
+    />
+  </g>
+  <g id="group-fly"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="none" stroke-width="0" fill="OrangeRed" filter="url(#filter-light)"
+  >
+    <path id="fly-wing-rb"
+          d="M60,60 l32,0 l-15,20 l-17,-17 z"
+    />
+    <path id="fly-wing-lb"
+          d="M60,60 l-32,0 l15,20 l17,-17 z"
+    />
+    <path id="fly-wing-rt"
+          d="M60,60 m0,-3 l40,-20 l-15,30 l-30,-7 z"
+    />
+    <path id="fly-wing-lt"
+          d="M60,60 m0,-3 l-40,-20 l15,30 l30,-7 z"
+    />
+  </g>
+  <defs>
+    <filter id="filter-light">
+      <feColorMatrix result="colorOut" in="SourceGraphic"
+                     values="1 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 1 0"
+      />
+      <feGaussianBlur result="blurOut" in="colorOut" stdDeviation="5"/>
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+    </filter>
+  </defs>
+</svg>

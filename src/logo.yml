@@ -1,0 +1,15 @@
+#From: https://github.com/trending?l=lang
+colors:
+  java: b07219
+  kotlin: A97BFF
+  spring: 6aad3d, f7f7f7
+  gRPC: 5cafb5, 345f60
+  javascript: f1e05a
+  typescript: 2b7489
+  go: 00ADD8
+  c: 555555
+  html: e34c26
+  css: 563d7c
+
+font:
+  family: Inter,Arial,sans-serif

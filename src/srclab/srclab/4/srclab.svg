@@ -1,0 +1,47 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <title>SrcLab</title>
+  <g id="group-color"
+     stroke="none" stroke-width="none">
+    <!-- 43.3 -->
+    <path id="element-color-1"
+          d="M50,50 m0,-50 a50,50,1,0,0,-43.3,25 L50,50 z"
+          fill="LimeGreen"
+    />
+    <path id="element-color-2"
+          d="M50,50 m-43.5,-25 a50,50,1,0,0,0,50 L50,50 z"
+          fill="RoyalBlue"
+    />
+    <path id="element-color-3"
+          d="M50,50 m-43.5,25 a50,50,1,0,0,43.5,25 L50,50 z"
+          fill="BlueViolet"
+    />
+    <path id="element-color-4"
+          d="M50,50 m0,50 a50,50,1,0,0,43.5,-25 L50,50 z"
+          fill="Violet"
+    />
+    <path id="element-color-5"
+          d="M50,50 m43.5,25 a50,50,1,0,0,0,-50 L50,50 z"
+          fill="Crimson"
+    />
+    <path id="element-color-6"
+          d="M50,50 m43.5,-25 a50,50,1,0,0,-43.5,-25 L50,50 z"
+          fill="Orange"
+    />
+    <circle
+      cx="50" cy="50" r="25"
+      fill="White"
+    />
+  </g>
+  <g id="group-text"
+     font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold"
+     fill="Black">
+    <text id="element-source"
+          x="50" y="50" text-anchor="middle">
+      Source
+    </text>
+    <text id="element-lab"
+          x="50" y="64" text-anchor="middle">
+      Lab
+    </text>
+  </g>
+</svg>

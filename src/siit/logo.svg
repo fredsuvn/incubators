@@ -1,0 +1,19 @@
+<svg width="120" height="120" viewBox="120 120 800 800" xmlns="http://www.w3.org/2000/svg">
+  <title>SIIT</title>
+  <g id="group-back">
+    <rect id="back-global" x="0" y="0" width="200%" height="200%" fill="#3f3f3f" stroke="none"/>
+  </g>
+  <g id="group-file">
+    <path
+      d="M808.96 365.056v-47.104a46.592 46.592 0 0 0-45.056-48.128h-271.36v-44.032a46.592 46.592 0 0 0-45.056-48.128H220.672a46.592 46.592 0 0 0-45.056 48.128v581.12L256 413.184a46.592 46.592 0 0 1 45.056-48.128z m-33.792 481.28h-563.2l76.8-397.312a46.592 46.592 0 0 1 45.056-48.128h520.704a46.592 46.592 0 0 1 45.056 48.128L819.2 798.208a46.592 46.592 0 0 1-44.032 48.128z"
+      fill="#222222"/>
+  </g>
+  <g id="group-title">
+    <text id="title-siit" x="68%" y="90%" text-anchor="middle"
+          font-family="Inter,Arial,sans-serif" font-size="250" font-style="italic"
+          fill="#EC1D20"
+    >
+      SIIT
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,18 @@
+= Logo Art - My Logo Design Palace
+Sun Qian <fredsuvn@163.com>
+:emaill: fredsuvn@163.com
+:url: https://github.com/fredsuvn/logo-art
+:qq: QQ: 2510701977
+:license: https://www.apache.org/licenses/LICENSE-2.0.html[Apache 2.0 license]
+
+*Hi there, as a logo designer, I love to share my designed logo!*
+
+== About Me
+
+* {emaill}
+* {url}
+* {qq}
+
+== License
+
+{license}
