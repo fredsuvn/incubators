@@ -1,14 +1,15 @@
+#From: https://github.com/trending?l=lang
 colors:
-  java: ec8b00
-  kotlin: 7f52ff
+  java: b07219
+  kotlin: A97BFF
   spring: 6aad3d, f7f7f7
   gRPC: 5cafb5, 345f60
-  typescript: 2f74c0
-  javascript: fcdc00
-  go: 7fd5ea
-  c: 3c3c3c
-  asciidoctor: e40046
-  html: f92672
+  javascript: f1e05a
+  typescript: 2b7489
+  go: 00ADD8
+  c: 555555
+  html: e34c26
+  css: 563d7c
 
 font:
   family: Inter,Arial,sans-serif
