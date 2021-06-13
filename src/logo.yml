@@ -1,0 +1,14 @@
+colors:
+  java: ec8b00
+  kotlin: 7f52ff
+  spring: 6aad3d, f7f7f7
+  gRPC: 5cafb5, 345f60
+  typescript: 2f74c0
+  javascript: fcdc00
+  go: 7fd5ea
+  c: 3c3c3c
+  asciidoctor: e40046
+  html: f92672
+
+font:
+  family: Inter,Arial,sans-serif

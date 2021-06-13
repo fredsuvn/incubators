@@ -1,0 +1,57 @@
+<svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+  <title>Xtea</title>
+  <g>
+    <g id="group-xtea" fill="url(#xtea-cup)">
+      <path id="element-xtea"
+            d="M0,0 l120,0 l-20,100 l-80,0 z"
+            fill="url(#color-cup)"/>
+      <text id="element-X"
+            x="60" y="60" text-anchor="middle"
+            font-family="Helvetica, Arial, sans-serif" font-size="60"
+            fill="url(#color-x)">
+        X
+      </text>
+      <g id="group-xtea-chars"
+         stroke-width="3" stroke-miterlimit="100"
+         fill="none">
+        <path id="element-t"
+              d="M25,90 m-5,-18 l11,0 m-5.5,-7 l0,25 l5,-9"
+              stroke="ForestGreen"/>
+        <path id="element-e"
+              d="M55,90 m-9,-9 l18,0 l-9,-9 l-9,9 l9,9 l5,-5"
+              stroke="RoyalBlue"/>
+        <path id="element-a"
+              d="M85,90 m-9,-18 l14,0 l4,18 l-18,0 l16,-9"
+              stroke="Magenta"/>
+      </g>
+    </g>
+    <g id="group-jvm"
+       stroke="url(#color-fire)" stroke-width="4" stroke-miterlimit="0"
+       fill="none">
+      <path id="element-J"
+            d="M30,120 m6,-20 l0,15 l-6,5 l-6,-5"/>
+      <path id="element-V"
+            d="M55,120 m-7,-20 l7,20 l7,-20"/>
+      <path id="element-M"
+            d="M85,120 m-12,0 l6,-20 l6,20 l6,-20 l6,20"/>
+    </g>
+  </g>
+  <defs>
+    <linearGradient id="color-cup" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="Black"/>
+      <stop offset="100%" stop-color="White"/>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="color-x" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="White"/>
+      <stop offset="100%" stop-color="Black"/>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="color-fire" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="Orange"/>
+      <stop offset="100%" stop-color="Red"/>
+    </linearGradient>
+  </defs>
+</svg>

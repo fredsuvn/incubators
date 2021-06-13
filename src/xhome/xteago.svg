@@ -1,0 +1,117 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <title>Xteago</title>
+  <g id="group-back">
+    <rect id="back-global" x="0" y="0" width="100%" height="100%" fill="#3f3f3f" stroke="none"/>
+  </g>
+  <g id="group-hive"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="#3f3f3f" stroke-width="1" fill="#fefefe" filter="url(#filter-light)"
+  >
+    <path id="hive-tr-1"
+          d="M80,43 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-tr-2"
+          d="M95,34.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-tr-3"
+          d="M95,17.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-tl-1"
+          d="M40,43 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-tl-2"
+          d="M25,34.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-tl-3"
+          d="M25,17.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-br-1"
+          d="M80,77 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-br-2"
+          d="M95,85.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-br-3"
+          d="M95,102.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-bl-1"
+          d="M40,77 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-bl-2"
+          d="M25,85.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="hive-bl-3"
+          d="M25,102.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+  </g>
+  <g id="group-color"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="#3f3f3f" stroke-width="1" fill="#7fd5ea" fill-opacity="0.382"
+  >
+    <path id="color-tr-1"
+          d="M80,43 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-tr-2"
+          d="M95,34.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-tr-3"
+          d="M95,17.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-tl-1"
+          d="M40,43 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-tl-2"
+          d="M25,34.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-tl-3"
+          d="M25,17.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-br-1"
+          d="M80,77 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-br-2"
+          d="M95,85.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-br-3"
+          d="M95,102.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-bl-1"
+          d="M40,77 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-bl-2"
+          d="M25,85.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+    <path id="color-bl-3"
+          d="M25,102.5 m-5,-8.5 l10,0 l5,8.5 l-5,8.5 l-10,0 l-5,-8.5 l5,-8.5"
+    />
+  </g>
+  <g id="group-title">
+    <path id="title-back"
+          d="M60,60 m-10,-17 l20,0 l10,17 l-10,17 l-20,0 l-10,-17 l10,-17"
+          stroke-linecap="square" stroke-miterlimit="100"
+          stroke="none" fill="Tomato" filter="url(#filter-light)"
+    />
+    <g id="group-title-text" text-anchor="middle" font-family="Inter,Arial,sans-serif"
+       font-size="12"
+    >
+      <text id="title-xtea" x="60" y="58" fill="#fefefe">
+        Xtea
+      </text>
+      <text id="title-go" x="60" y="70" fill="#fefefe">
+        go
+      </text>
+    </g>
+  </g>
+  <defs>
+    <filter id="filter-light">
+      <feColorMatrix result="colorOut" in="SourceGraphic"
+                     values="1 0 0 0 0
+                             0 0.38824 0 0 0
+                             0 0 0.27843 0 0
+                             0 0 0 1 0"
+      />
+      <feGaussianBlur result="blurOut" in="colorOut" stdDeviation="4"/>
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+    </filter>
+  </defs>
+</svg>

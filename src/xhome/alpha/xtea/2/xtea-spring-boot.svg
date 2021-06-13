@@ -1,0 +1,51 @@
+<svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <title>Xtea Spring Boot</title>
+    <path id="svg-xtea"
+          d="M0,0 l120,0 l-20,100 l-80,0 z"
+          fill="url(#xtea-cup)"/>
+    <text id="xtea-X"
+          x="60" y="60" text-anchor="middle"
+          font-family="Helvetica, Arial, sans-serif" font-size="60"
+          fill="url(#xtea-cool)">
+      X
+    </text>
+    <path id="xtea-t"
+          d="M25,90 m-5,-18 l11,0 m-5.5,-7 l0,25 l5,-9"
+          stroke="ForestGreen" stroke-width="3" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="xtea-e"
+          d="M55,90 m-9,-9 l18,0 l-9,-9 l-9,9 l9,9 l5,-5"
+          stroke="RoyalBlue" stroke-width="3" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="xtea-a"
+          d="M85,90 m-9,-18 l14,0 l4,18 l-18,0 l16,-9"
+          stroke="Magenta" stroke-width="3" stroke-miterlimit="100"
+          fill="none"/>
+    <text id="svg-spring"
+          x="20" y="115" text-anchor="start"
+          font-family="Helvetica, Arial, sans-serif" font-size="15"
+          fill="#6CB33D">
+      Spring
+    </text>
+    <text id="svg-boot"
+          x="100" y="115" text-anchor="end"
+          font-family="Helvetica, Arial, sans-serif" font-size="15"
+          fill="#6CB33D">
+      Boot
+    </text>
+  </g>
+
+  <defs>
+    <linearGradient id="xtea-cool" x1="0%" y1="0%" x2="100%" y2="0">
+      <stop offset="0%" stop-color="Black"></stop>
+      <stop offset="100%" stop-color="White"></stop>
+    </linearGradient>
+  </defs>
+  <defs>
+    <linearGradient id="xtea-cup" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="YellowGreen"></stop>
+      <stop offset="100%" stop-color="LightYellow"></stop>
+    </linearGradient>
+  </defs>
+</svg>
