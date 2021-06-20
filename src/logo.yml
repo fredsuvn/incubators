@@ -1,5 +1,7 @@
 #From: https://github.com/trending?l=lang
 colors:
+  back: 3f3f3f
+  white: fefefe
   java: b07219
   kotlin: A97BFF
   spring: 68bd45, f7f7f7
