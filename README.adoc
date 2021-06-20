@@ -1,4 +1,6 @@
 = Logo Art - My Logo Palace
+:toc: macro
+:toclevels: 3
 Sun Qian <fredsuvn@163.com>
 :emaill: fredsuvn@163.com
 :url: https://github.com/fredsuvn/logo-art
@@ -9,6 +11,8 @@ Sun Qian <fredsuvn@163.com>
 *Hi there, welcome to my logo palace!*
 
 *This is an amazing place collects a lot of genius logos designed by a genius logo designer -- ME!*
+
+toc::[]
 
 == My Logos and Their History
 
