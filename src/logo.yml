@@ -3,7 +3,7 @@ colors:
   java: b07219
   kotlin: A97BFF
   spring: 68bd45, f7f7f7
-  gRPC: 5cafb5, 345f60
+  gRPC: 2da6b0
   javascript: f1e05a
   typescript: 2b7489
   go: 00ADD8
