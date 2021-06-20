@@ -1,0 +1,28 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <title>Home Light</title>
+  <g id="group-back">
+    <rect id="back-global" x="0" y="0" width="100%" height="100%" fill="DeepSkyBlue" stroke="none"/>
+  </g>
+  <g id="group-port"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="none" fill="#f7f7f7"
+  >
+    <path id="port"
+          d="M60,60 m-20,55 l15,-50 a20,20,0,1,1,10,0 l15,50"
+    />
+  </g>
+  <g id="group-wave"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="#f7f7f7" stroke-width="5" fill="none"
+  >
+    <path id="wave-1"
+          d="M60,95 m-25,-10 a40,40,0,1,1,50,0"
+    />
+    <path id="wave-2"
+          d="M60,95 m-30,0 a50,50,0,1,1,60,0"
+    />
+    <path id="wave-3"
+          d="M60,95 m-35,10 a60,60,0,1,1,70,0"
+    />
+  </g>
+</svg>
