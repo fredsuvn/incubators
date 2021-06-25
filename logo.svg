@@ -1,0 +1,40 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <title>Logo Art</title>
+  <g id="group-frame"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="Sienna" stroke-width="5" fill="none"
+  >
+    <path id="frame"
+          d="M60,60 m-50,-50 l100,0 l0,100 l-100,0 l0,-100"
+    />
+  </g>
+  <g id="group-butterfly"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="none" stroke-width="0" fill="OrangeRed" filter="url(#filter-light)"
+  >
+    <path id="butterfly-wing-rb"
+          d="M60,60 l32,0 l-15,20 l-17,-17 z"
+    />
+    <path id="butterfly-wing-lb"
+          d="M60,60 l-32,0 l15,20 l17,-17 z"
+    />
+    <path id="butterfly-wing-rt"
+          d="M60,60 m0,-3 l40,-20 l-15,30 l-30,-7 z"
+    />
+    <path id="butterfly-wing-lt"
+          d="M60,60 m0,-3 l-40,-20 l15,30 l30,-7 z"
+    />
+  </g>
+  <defs>
+    <filter id="filter-light">
+      <feColorMatrix result="colorOut" in="SourceGraphic"
+                     values="1 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 1 0"
+      />
+      <feGaussianBlur result="blurOut" in="colorOut" stdDeviation="5"/>
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+    </filter>
+  </defs>
+</svg>
