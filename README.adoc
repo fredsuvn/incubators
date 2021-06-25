@@ -1,4 +1,4 @@
-= image:logo.svg[] Logo Art - My Logo Palace
+= image:logo.svg[] Logo Art - My Logo Art Palace
 :toc: macro
 :toclevels: 3
 Sun Qian <fredsuvn@163.com>
