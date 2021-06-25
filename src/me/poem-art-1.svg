@@ -1,0 +1,40 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <title>Poem Art</title>
+  <g id="group-frame"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="Sienna" stroke-width="5" fill="none"
+  >
+    <path id="frame"
+          d="M60,60 m-50,-50 l100,0 l0,100 l-100,0 l0,-100"
+    />
+  </g>
+  <g id="group-moth"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="none" stroke-width="0" fill="#5C009D" filter="url(#filter-light)"
+  >
+    <path id="moth-wing-rb"
+          d="M60,60 m0,-13 l35,10 l-32,20 l-3,-20 z"
+    />
+    <path id="moth-wing-lb"
+          d="M60,60 m0,-13 l-35,10 l32,20 l3,-20 z"
+    />
+    <path id="moth-wing-rt"
+          d="M60,60 m0,-16 l40,15 l-22,15 l-18,-27 z"
+    />
+    <path id="moth-wing-lt"
+          d="M60,60 m0,-16 l-40,15 l22,15 l18,-27 z"
+    />
+  </g>
+  <defs>
+    <filter id="filter-light">
+      <feColorMatrix result="colorOut" in="SourceGraphic"
+                     values="0.36078 0 0 0 0
+                             0 0.00001 0 0 0
+                             0 0 0.61569 0 0
+                             0 0 0 1 0"
+      />
+      <feGaussianBlur result="blurOut" in="colorOut" stdDeviation="5"/>
+      <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+    </filter>
+  </defs>
+</svg>
