@@ -20,6 +20,7 @@ toc::[]
 
 .suvn
 image:src/suvn/1-hive/suvn.svg[,64]
+image:src/suvn/1-hive/suvn-2.svg[,64]
 
 === SrcLab
 
@@ -30,6 +31,7 @@ image:src/srclab/srclab/3/srclab-2.svg[,64]
 image:src/srclab/srclab/4/srclab-4.svg[,64]
 image:src/srclab/srclab/5-hive/srclab-1.svg[,64]
 image:src/srclab/srclab/5-hive/srclab-2.svg[,64]
+image:src/srclab/srclab/5-hive/srclab-3.svg[,64]
 
 .srclab-dependencies
 image:src/srclab/srclab/5-hive/srclab-dependencies-1.svg[,64]
@@ -43,6 +45,7 @@ image:src/srclab/boat/2/boat.svg[,64]
 image:src/srclab/boat/3/boat.svg[,64]
 image:src/srclab/boat/4-hive/boat.svg[,64]
 image:src/srclab/boat/5-boat/boat.svg[,64]
+image:src/srclab/boat/5-boat/boat-2.svg[,64]
 
 .boat-spring-boot
 image:src/srclab/boat/1/boat-spring-boot.svg[,64]
