@@ -8,21 +8,21 @@ Sun Qian <fredsuvn@163.com>
 :qq: QQ: 2510701977
 :license: https://www.apache.org/licenses/LICENSE-2.0.html[Apache 2.0 license]
 
-*Hi there, welcome to my logo palace!*
+*Hi there, welcome to my _Logo Art Palace_!*
 
 *This is an amazing place collects a lot of genius logos designed by a genius logo designer -- ME!*
 
 toc::[]
 
-== My Logos and Their History
+== Logos and Their History
 
-=== Suvn
+=== Suvn Theme
 
 .suvn
 image:src/suvn/1-hive/suvn-1.svg[,64]
 image:src/suvn/1-hive/suvn-2.svg[,64]
 
-=== SrcLab
+=== SrcLab Theme
 
 .srclab
 image:src/srclab/srclab/1/srclab-2.svg[,64]
@@ -37,7 +37,7 @@ image:src/srclab/srclab/5-hive/srclab-3.svg[,64]
 image:src/srclab/srclab/5-hive/srclab-dependencies-1.svg[,64]
 image:src/srclab/srclab/5-hive/srclab-dependencies-2.svg[,64]
 
-==== Boat
+==== Boat Theme
 
 .boat
 image:src/srclab/boat/1/boat.svg[,64]
@@ -59,7 +59,7 @@ image:src/srclab/boat/3/grpc-spring-boot.svg[,64]
 image:src/srclab/boat/4-hive/grpc-spring-boot.svg[,64]
 image:src/srclab/boat/5-boat/grpc-spring-boot.svg[,64]
 
-==== Home
+==== Home Theme
 
 .home-light
 image:src/srclab/home/1-hive/firefly.svg[,64]
@@ -75,7 +75,7 @@ image:src/srclab/home/2-home/home-port-2.svg[,64]
 image:src/srclab/home/2-home/home-ship-1.svg[,64]
 image:src/srclab/home/2-home/home-ship-2.svg[,64]
 
-=== Xhome
+=== Xhome Theme
 
 .xhome
 image:src/xhome/xhome/1/xteam-home.svg[,64]
@@ -85,7 +85,7 @@ image:src/xhome/xhome/2/xhome.svg[,64]
 .xhome-dependencies
 image:src/xhome/xhome/2/xhome-dependencies.svg[,64]
 
-==== Xtea
+==== Xtea Theme
 
 .xtea
 image:src/xhome/xtea/1/xtea.svg[,64]
@@ -116,7 +116,7 @@ image:src/tousie/1-hive/tousie.svg[,64]
 .ufotv
 image:src/ufotv/1-hive/ufotv.svg[,64]
 
-=== More in link:src[Here]!
+=== More Genius Logo Arts link:src[Here]!
 
 == About Me
 
