@@ -64,13 +64,16 @@ image:src/srclab/boat/5-boat/grpc-spring-boot.svg[,64]
 .home-light
 image:src/srclab/home/1-hive/firefly.svg[,64]
 image:src/srclab/home/2-home/home-light.svg[,64]
+image:src/srclab/home/2-home/home-light-2.svg[,64]
 
 .home-port
 image:src/srclab/home/1-hive/homeport.svg[,64]
 image:src/srclab/home/2-home/home-port.svg[,64]
+image:src/srclab/home/2-home/home-port-2.svg[,64]
 
 .home-ship
 image:src/srclab/home/2-home/home-ship.svg[,64]
+image:src/srclab/home/2-home/home-ship-2.svg[,64]
 
 === Xhome
 
