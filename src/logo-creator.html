@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Logo Creator</title>
+</head>
+
+<body style="text-align: center">
+<div id="canvas-container"></div>
+<div>
+  <input type="button" value="Refresh" onclick="refresh()"/>
+</div>
+<div>
+  <div style="display: inline-flex">
+  <span>
+    <div>
+      <label for="canvas-info">Coordinate</label>
+    </div>
+    <div>
+      <label for="canvas-width">Width</label>
+    </div>
+    <div>
+      <label for="canvas-height">Height</label>
+    </div>
+  </span>
+    <span>
+    <div>
+      <input id="canvas-info" readonly="readonly"/>
+    </div>
+    <div>
+      <input id="canvas-width" value="100"/>
+    </div>
+    <div>
+      <input id="canvas-height" value="100"/>
+    </div>
+  </span>
+  </div>
+</div>
+<div>
+  <div style="display: inline-flex">
+  <span id="canvas-black"
+        style="border-color:red;border-width: 1px;border-style:solid;background-color: black;color: white"
+        onclick="onBlackClick()">
+    Black
+  </span>
+    <span id="canvas-white" style="background-color: white;color: black"
+          onclick="onWhiteClick()">
+    White
+  </span>
+  </div>
+</div>
+</body>
+
+<script>
+  const X_UNIT = 5
+  const Y_UNIT = 5
+
+  let mouseClicked = false
+  let color = "#000000"
+
+  function createCanvas(width, height) {
+    const container = document.getElementById("canvas-container")
+    for (let childNode of container.childNodes) {
+      childNode.remove()
+    }
+    const canvas = document.createElement("canvas")
+    canvas.id = "canvas"
+    canvas.width = width * X_UNIT
+    canvas.height = height * Y_UNIT
+    canvas.className = "canvas"
+    container.append(canvas)
+
+    const info = document.getElementById("canvas-info");
+    canvas.addEventListener("mousemove", (event) => {
+      onMove(canvas, event, info)
+    })
+    canvas.addEventListener("mouseout", (event) => {
+      onMouseUp()
+    })
+    canvas.addEventListener("mousedown", (event) => {
+      onMouseDown()
+    })
+    canvas.addEventListener("mouseup", (event) => {
+      onMouseUp()
+    })
+  }
+
+  function onMove(canvas, event, target) {
+    //const canvas = document.getElementById("canvas");
+    //const info = document.getElementById("canvas-info");
+    //const ctx = canvas.getContext("2d");
+
+    const coordinate = getCoordinate(canvas, event)
+    target.value = coordinate.x + ", " + coordinate.y
+
+    if (mouseClicked) {
+      draw(canvas, coordinate)
+    }
+  }
+
+  function onMouseDown() {
+    mouseClicked = true
+  }
+
+  function onMouseUp() {
+    mouseClicked = false
+  }
+
+  function onBlackClick() {
+    color = "#000000"
+    document.getElementById("canvas-black").style.borderColor = "red"
+    document.getElementById("canvas-black").style.borderWidth = "1px"
+    document.getElementById("canvas-black").style.borderStyle = "solid"
+    document.getElementById("canvas-white").style.borderColor = ""
+    document.getElementById("canvas-white").style.borderWidth = ""
+    document.getElementById("canvas-white").style.borderStyle = ""
+  }
+
+  function onWhiteClick() {
+    color = "#ffffff"
+    document.getElementById("canvas-white").style.borderColor = "red"
+    document.getElementById("canvas-white").style.borderWidth = "1px"
+    document.getElementById("canvas-white").style.borderStyle = "solid"
+    document.getElementById("canvas-black").style.borderColor = ""
+    document.getElementById("canvas-black").style.borderWidth = ""
+    document.getElementById("canvas-black").style.borderStyle = ""
+  }
+
+  function draw(canvas, coordinate) {
+    const ax = coordinate.x * X_UNIT
+    const ay = coordinate.y * Y_UNIT
+    const tx = X_UNIT
+    const ty = Y_UNIT
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = color;
+    ctx.fillRect(ax, ay, tx, ty);
+  }
+
+  function getCoordinate(canvas, event) {
+    let x;
+    let y;
+    if (event.pageX || event.pageY) {
+      x = event.pageX;
+      y = event.pageY;
+    } else {
+      x = event.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+      y = event.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+
+    x -= canvas.offsetLeft;
+    y -= canvas.offsetTop
+    x /= X_UNIT
+    y /= Y_UNIT
+    x = Math.floor(x)
+    y = Math.floor(y)
+
+    return {
+      x: x,
+      y: y,
+    }
+  }
+
+  function refresh() {
+    const width = document.getElementById("canvas-width").value
+    const height = document.getElementById("canvas-height").value
+    createCanvas(width, height)
+  }
+
+  refresh()
+</script>
+<style>
+  .canvas {
+    border-color: red;
+    border-style: solid;
+    border-width: 1px;
+  }
+</style>
+</html>
