@@ -1,0 +1,25 @@
+<svg width="500" height="100" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <title>SrcLab</title>
+    <path id="svg-a"
+          d="M25,35 l50,0 l0,60 l-50,0 l0,-35 l50,0"
+          stroke="Fuchsia" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="svg-b"
+          d="M125,15 l0,80 l50,0 l0,-35 l-50,0"
+          stroke="Fuchsia" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="svg-c"
+          d="M275,35 l-50,0 l0,60 l50,0"
+          stroke="Fuchsia" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="svg-l"
+          d="M325,35 l0,60 l50,0"
+          stroke="Fuchsia" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+    <path id="svg-r"
+          d="M425,95 l0,-60 m0,25 l25,-25"
+          stroke="Fuchsia" stroke-width="5" stroke-miterlimit="100"
+          fill="none"/>
+  </g>
+</svg>
