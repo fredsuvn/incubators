@@ -36,6 +36,7 @@ image:src/srclab/srclab/5-hive/srclab-3.svg[,64]
 .srclab-dependencies
 image:src/srclab/srclab/5-hive/srclab-dependencies-1.svg[,64]
 image:src/srclab/srclab/5-hive/srclab-dependencies-2.svg[,64]
+image:src/srclab/srclab/5-hive/srclab-dependencies-3.svg[,64]
 
 ==== Boat Theme
 

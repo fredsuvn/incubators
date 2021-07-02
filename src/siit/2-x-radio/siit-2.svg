@@ -1,0 +1,30 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <title>SIIT</title>
+  <g id="group-back">
+    <circle id="back-global" cx="50" cy="50" r="50" fill="#0e0e0e"/>
+  </g>
+  <g id="group-radio"
+     stroke-linecap="square" stroke-miterlimit="100"
+     stroke="none" fill="#79BD2E"
+  >
+    <path id="radio-1"
+          d="M50,50 m-5,-15 a16,16,0,0,1,10,0 l4,-30 l-18,0 l4,30"
+          transform="rotate(-35,50,50)"
+    />
+    <path id="radio-2"
+          d="M50,50 m-5,-15 a16,16,0,0,1,10,0 l4,-30 l-18,0 l4,30"
+          transform="rotate(35,50,50)"
+    />
+    <path id="radio-3"
+          d="M50,50 m-5,-15 a16,16,0,0,1,10,0 l4,-30 l-18,0 l4,30"
+          transform="rotate(145,50,50)"
+    />
+    <path id="radio-4"
+          d="M50,50 m-5,-15 a16,16,0,0,1,10,0 l4,-30 l-18,0 l4,30"
+          transform="rotate(-145,50,50)"
+    />
+  </g>
+  <g id="group-source">
+    <circle id="source" cx="50" cy="50" r="8" fill="#79BD2E"/>
+  </g>
+</svg>
