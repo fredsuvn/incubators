@@ -21,6 +21,7 @@ toc::[]
 .suvn
 image:src/suvn/1-hive/suvn-1.svg[,64]
 image:src/suvn/1-hive/suvn-2.svg[,64]
+image:src/suvn/1-hive/suvn-3.svg[,64]
 
 === SrcLab Theme
 
